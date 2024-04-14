@@ -6,12 +6,12 @@ int greet(const char* text)
 	return static_cast<int>(strlen(text));
 }
 
-int sum(int a, int b)
+int sum(const int a, const int b)
 {
 	return a + b;
 }
 
-int minus(int a, int b)
+int minus(const int a, const int b)
 {
 	return a - b;
 }

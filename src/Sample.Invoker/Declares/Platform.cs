@@ -12,13 +12,13 @@ namespace Sample.Invoker.Declares
         /// </summary>
         private const string DllName = "Sample.NativeLibrary.dll";
 
-        [DllImport(DllName, EntryPoint = "greet")]
+        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "greet")]
         public static extern int Greet([MarshalAs(UnmanagedType.LPStr)] string text);
 
-        [DllImport(DllName, EntryPoint = "sum")]
+        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "sum")]
         public static extern int Sum(int a, int b);
 
-        [DllImport(DllName, EntryPoint = "minus")]
+        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "minus")]
         public static extern int Minus(int a, int b);
     }
 }

@@ -1,0 +1,8 @@
+{
+    "profiles": {
+        "Sample.Invoker": {
+            "commandName": "Project",
+            "nativeDebugging": true
+        }
+    }
+}
