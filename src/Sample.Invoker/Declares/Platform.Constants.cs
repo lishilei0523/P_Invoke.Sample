@@ -8,6 +8,6 @@
         /// <summary>
         /// 程序集名称
         /// </summary>
-        private const string DllName = "Sample.NativeLibrary.dll";
+        private const string DllName = "Sample.NativeLibrary";
     }
 }

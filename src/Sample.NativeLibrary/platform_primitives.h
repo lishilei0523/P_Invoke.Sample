@@ -1,6 +1,6 @@
 #pragma once
 #define EXPORT extern "C" __declspec(dllexport)
-#define CALLING_MODE __stdcall
+#define CALLING_MODE _cdecl
 
 //·¢ËÍ²¿·Ö
 EXPORT void CALLING_MODE sendBool(const bool enabled);

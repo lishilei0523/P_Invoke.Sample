@@ -7,9 +7,9 @@ void sendString(const char* text)
 	std::cout << "C++: " << text << endl;
 }
 
-const char* receiveString()
+char* receiveString()
 {
-	const char* text = "Hello World";
+	char* text = const_cast<char*>("Hello World");
 
 	return text;
 }
