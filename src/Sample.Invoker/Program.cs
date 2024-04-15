@@ -17,9 +17,9 @@ namespace Sample.Invoker
 
             //TestSendPrimitives();
             //TestReceivePrimitives();
-            TestSendString();
-            TestReceiveString();
-            //TestExchangeString();
+            //TestSendString();
+            //TestReceiveString();
+            TestReceiveStlString();
 
             Console.ReadKey();
         }
@@ -60,6 +60,13 @@ namespace Sample.Invoker
         }
 
         static void TestReceiveString()
+        {
+            IntPtr textPtr = Platform.ReceiveString();
+            string text = Marshal.PtrToStringAnsi(textPtr);
+            Console.WriteLine($"C#: {text}");
+        }
+
+        static void TestReceiveStlString()
         {
             IntPtr textPtr = Platform.ReceiveString();
             string text = Marshal.PtrToStringAnsi(textPtr);

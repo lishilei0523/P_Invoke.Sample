@@ -4,3 +4,4 @@
 
 EXPORT void CALLING_MODE sendString(const char* text);
 EXPORT char* CALLING_MODE receiveString();
+EXPORT char* CALLING_MODE receiveStlString();

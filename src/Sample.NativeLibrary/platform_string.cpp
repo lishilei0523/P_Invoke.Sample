@@ -13,3 +13,11 @@ char* receiveString()
 
 	return text;
 }
+
+char* receiveStlString()
+{
+	const string text = "Hello World";
+	char* chr = const_cast<char*>(text.c_str());
+
+	return chr;
+}
