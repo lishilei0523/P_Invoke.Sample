@@ -9,15 +9,9 @@ void sendString(const char* text)
 
 char* receiveString()
 {
-	char* text = const_cast<char*>("Hello World");
+	const string stlStr = "Hello World";
+	char* text = _strdup(stlStr.c_str());
+	//char* text = const_cast<char*>("char*: Hello World");
 
 	return text;
-}
-
-char* receiveStlString()
-{
-	const string text = "Hello World";
-	char* chr = const_cast<char*>(text.c_str());
-
-	return chr;
 }

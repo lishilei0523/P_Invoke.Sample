@@ -23,13 +23,5 @@ namespace Sample.Invoker.Declares
         [DllImport(DllName, CharSet = CharSet.Ansi, EntryPoint = "receiveString")]
         public static extern IntPtr ReceiveString();
         #endregion
-
-        #region # 接收STL string —— static extern IntPtr ReceiveStlString()
-        /// <summary>
-        /// 接收STL string
-        /// </summary>
-        [DllImport(DllName, CharSet = CharSet.Ansi, EntryPoint = "receiveStlString")]
-        public static extern IntPtr ReceiveStlString();
-        #endregion
     }
 }
