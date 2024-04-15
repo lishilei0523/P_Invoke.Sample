@@ -13,12 +13,13 @@ namespace Sample.Invoker
             //TODO 结构体嵌套数组数据封送
             //TODO 结构体嵌套结构体数据封送
 
-            TestSendPrimitives();
-            TestReceivePrimitives();
-            TestSendString();
-            TestReceiveString();
+            //TestSendPrimitives();
+            //TestReceivePrimitives();
+            //TestSendString();
+            //TestReceiveString();
             TestSendNumbers();
-            TestSendStrings();
+            //TestReceiveNumber();
+            //TestSendStrings();
 
             Console.ReadKey();
         }
@@ -69,6 +70,17 @@ namespace Sample.Invoker
         {
             int[] numbers = { 1, 2, 3, 4, 5, 10 };
             Platform.SendNumbers(numbers, numbers.Length);
+        }
+
+        static unsafe void TestReceiveNumber()
+        {
+            IntPtr numbersPtr = Platform.ReceiveNumbers();
+            int* pointer = (int*)numbersPtr.ToPointer();
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine(pointer[i]);
+            }
+            NativeMemory.Clear(pointer, sizeof(int) * 5);
         }
 
         static void TestSendStrings()
