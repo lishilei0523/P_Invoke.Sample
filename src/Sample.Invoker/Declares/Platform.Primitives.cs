@@ -13,7 +13,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送bool
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "sendBool")]
+        [DllImport(DllName, EntryPoint = "sendBool")]
         public static extern void SendBool(bool enabled);
         #endregion
 
@@ -21,7 +21,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送byte
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "sendByte")]
+        [DllImport(DllName, EntryPoint = "sendByte")]
         public static extern void SendByte(byte number);
         #endregion
 
@@ -29,7 +29,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送sbyte
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "sendSByte")]
+        [DllImport(DllName, EntryPoint = "sendSByte")]
         public static extern void SendSByte(sbyte number);
         #endregion
 
@@ -37,7 +37,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送short
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "sendShort")]
+        [DllImport(DllName, EntryPoint = "sendShort")]
         public static extern void SendShort(short number);
         #endregion
 
@@ -45,7 +45,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送ushort
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "sendUShort")]
+        [DllImport(DllName, EntryPoint = "sendUShort")]
         public static extern void SendUShort(ushort number);
         #endregion
 
@@ -53,7 +53,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送int
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "sendInt")]
+        [DllImport(DllName, EntryPoint = "sendInt")]
         public static extern void SendInt(int number);
         #endregion
 
@@ -61,7 +61,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送uint
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "sendUInt")]
+        [DllImport(DllName, EntryPoint = "sendUInt")]
         public static extern void SendUInt(uint number);
         #endregion
 
@@ -69,7 +69,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送long
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "sendLong")]
+        [DllImport(DllName, EntryPoint = "sendLong")]
         public static extern void SendLong(long number);
         #endregion
 
@@ -77,7 +77,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送ulong
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "sendULong")]
+        [DllImport(DllName, EntryPoint = "sendULong")]
         public static extern void SendULong(ulong number);
         #endregion
 
@@ -85,7 +85,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送float
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "sendFloat")]
+        [DllImport(DllName, EntryPoint = "sendFloat")]
         public static extern void SendFloat(float number);
         #endregion
 
@@ -93,7 +93,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送double
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "sendDouble")]
+        [DllImport(DllName, EntryPoint = "sendDouble")]
         public static extern void SendDouble(double number);
         #endregion
 
@@ -104,7 +104,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收bool
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "receiveBool")]
+        [DllImport(DllName, EntryPoint = "receiveBool")]
         public static extern bool ReceiveBool();
         #endregion
 
@@ -112,7 +112,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收byte
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "receiveByte")]
+        [DllImport(DllName, EntryPoint = "receiveByte")]
         public static extern byte ReceiveByte();
         #endregion
 
@@ -120,7 +120,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收sbyte
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "receiveSByte")]
+        [DllImport(DllName, EntryPoint = "receiveSByte")]
         public static extern sbyte ReceiveSByte();
         #endregion
 
@@ -128,7 +128,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收short
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "receiveShort")]
+        [DllImport(DllName, EntryPoint = "receiveShort")]
         public static extern short ReceiveShort();
         #endregion
 
@@ -136,7 +136,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收ushort
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "receiveUShort")]
+        [DllImport(DllName, EntryPoint = "receiveUShort")]
         public static extern ushort ReceiveUShort();
         #endregion
 
@@ -144,7 +144,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收int
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "receiveInt")]
+        [DllImport(DllName, EntryPoint = "receiveInt")]
         public static extern int ReceiveInt();
         #endregion
 
@@ -152,7 +152,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收uint
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "receiveUInt")]
+        [DllImport(DllName, EntryPoint = "receiveUInt")]
         public static extern uint ReceiveUInt();
         #endregion
 
@@ -160,7 +160,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收long
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "receiveLong")]
+        [DllImport(DllName, EntryPoint = "receiveLong")]
         public static extern long ReceiveLong();
         #endregion
 
@@ -168,7 +168,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收ulong
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "receiveULong")]
+        [DllImport(DllName, EntryPoint = "receiveULong")]
         public static extern ulong ReceiveULong();
         #endregion
 
@@ -176,7 +176,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收float
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "receiveFloat")]
+        [DllImport(DllName, EntryPoint = "receiveFloat")]
         public static extern float ReceiveFloat();
         #endregion
 
@@ -184,7 +184,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收double
         /// </summary>
-        [DllImport(DllName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi, EntryPoint = "receiveDouble")]
+        [DllImport(DllName, EntryPoint = "receiveDouble")]
         public static extern double ReceiveDouble();
         #endregion
     }

@@ -8,17 +8,17 @@ namespace Sample.Invoker
     {
         static void Main()
         {
-            //TODO 基元类型数组数据封送
-            //TODO 字符串数组数据封送
             //TODO 结构体数据封送
             //TODO 结构体数组数据封送
             //TODO 结构体嵌套数组数据封送
             //TODO 结构体嵌套结构体数据封送
 
-            //TestSendPrimitives();
-            //TestReceivePrimitives();
+            TestSendPrimitives();
+            TestReceivePrimitives();
             TestSendString();
             TestReceiveString();
+            TestSendNumbers();
+            TestSendStrings();
 
             Console.ReadKey();
         }
@@ -63,6 +63,24 @@ namespace Sample.Invoker
             IntPtr textPtr = Platform.ReceiveString();
             string text = Marshal.PtrToStringAnsi(textPtr);
             Console.WriteLine($"C#: {text}");
+        }
+
+        static void TestSendNumbers()
+        {
+            int[] numbers = { 1, 2, 3, 4, 5, 10 };
+            Platform.SendNumbers(numbers, numbers.Length);
+        }
+
+        static void TestSendStrings()
+        {
+            string[] lines =
+            {
+                "床前明月光",
+                "疑是地上霜",
+                "举头望明月",
+                "低头思故乡"
+            };
+            Platform.SendStrings(lines, lines.Length);
         }
     }
 }
