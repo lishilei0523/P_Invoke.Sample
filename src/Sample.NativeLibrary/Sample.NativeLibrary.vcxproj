@@ -151,14 +151,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="platform.h" />
-    <ClInclude Include="resource.h" />
+    <ClInclude Include="platform_primitives.h" />
+    <ClInclude Include="platform_string.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="platform.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Sample.NativeLibrary.rc" />
+    <ClCompile Include="platform_primitives.cpp" />
+    <ClCompile Include="platform_string.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

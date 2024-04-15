@@ -1,22 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="platform.h" />
-    <ClInclude Include="resource.h">
-      <Filter>Content</Filter>
-    </ClInclude>
+    <ClInclude Include="platform_primitives.h" />
+    <ClInclude Include="platform_string.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="platform.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="Content">
-      <UniqueIdentifier>{5589ae75-40cc-457b-871b-56e7908bfbea}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Sample.NativeLibrary.rc">
-      <Filter>Content</Filter>
-    </ResourceCompile>
+    <ClCompile Include="platform_primitives.cpp" />
+    <ClCompile Include="platform_string.cpp" />
   </ItemGroup>
 </Project>
