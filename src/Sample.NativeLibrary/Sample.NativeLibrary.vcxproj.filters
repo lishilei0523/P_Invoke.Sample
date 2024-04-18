@@ -22,6 +22,9 @@
     <ClInclude Include="rectangle.h">
       <Filter>Models</Filter>
     </ClInclude>
+    <ClInclude Include="array_desc.h">
+      <Filter>Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="point.cpp">
@@ -43,6 +46,9 @@
       <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="rectangle.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="array_desc.cpp">
       <Filter>Models</Filter>
     </ClCompile>
   </ItemGroup>

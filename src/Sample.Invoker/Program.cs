@@ -25,14 +25,16 @@ namespace Sample.Invoker
             //TestReceiveNumbers();
             //TestSendStrings();
             //TestSendStructs();
+            //TestReceiveArray();
+            TestReceiveArrayPtr();
             //TestSendStruct();
-            TestSendComplexStruct();
+            //TestSendComplexStruct();
             //TestSendStructPtr();
-            TestSendComplexStructPtr();
+            //TestSendComplexStructPtr();
             //TestReceiveStruct();
-            TestReceiveComplexStruct();
+            //TestReceiveComplexStruct();
             //TestReceiveStructPtr();
-            TestReceiveComplexStructPtr();
+            //TestReceiveComplexStructPtr();
             //TestReceiveHandledExpcetion();
             //TestReceiveUnhandledExpcetion();
 
@@ -116,6 +118,45 @@ namespace Sample.Invoker
             Point[] points = { point1, point2, point3, point4 };
 
             Platform.SendPoints(points, points.Length);
+        }
+
+        static unsafe void TestReceiveArray()
+        {
+            Console.WriteLine("C# 接收数组");
+
+            IntPtr arrayDescPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(ArrayDesc)));
+            Platform.ReceiveArray(arrayDescPtr);
+            ArrayDesc arrayDesc = Marshal.PtrToStructure<ArrayDesc>(arrayDescPtr);
+
+            int* arrayPtr = (int*)arrayDesc.Numbers.ToPointer();
+            for (int i = 0; i < arrayDesc.Length; i++)
+            {
+                Console.WriteLine($"C# Array[{i}]: {arrayPtr[i]}");
+            }
+
+            //释放资源
+            Marshal.FreeHGlobal(arrayDescPtr);
+
+            Console.WriteLine("------------------------------");
+        }
+
+        static unsafe void TestReceiveArrayPtr()
+        {
+            Console.WriteLine("C# 接收数组指针");
+
+            IntPtr arrayDescPtr = Platform.ReceiveArrayPtr();
+            ArrayDesc arrayDesc = Marshal.PtrToStructure<ArrayDesc>(arrayDescPtr);
+
+            int* arrayPtr = (int*)arrayDesc.Numbers.ToPointer();
+            for (int i = 0; i < arrayDesc.Length; i++)
+            {
+                Console.WriteLine($"C# Array[{i}]: {arrayPtr[i]}");
+            }
+
+            //释放资源
+            Platform.DisposeArrayPtr(arrayDescPtr);
+
+            Console.WriteLine("------------------------------");
         }
 
         static void TestSendStruct()

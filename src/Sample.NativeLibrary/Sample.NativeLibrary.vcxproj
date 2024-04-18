@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="array_desc.h" />
     <ClInclude Include="platform_array.h" />
     <ClInclude Include="platform_exception.h" />
     <ClInclude Include="platform_primitives.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="rectangle.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="array_desc.cpp" />
     <ClCompile Include="platform_array.cpp" />
     <ClCompile Include="platform_exception.cpp" />
     <ClCompile Include="platform_primitives.cpp" />

@@ -1,4 +1,5 @@
 ﻿using Sample.Invoker.Models;
+using System;
 using System.Runtime.InteropServices;
 
 namespace Sample.Invoker.Declares
@@ -30,6 +31,30 @@ namespace Sample.Invoker.Declares
         /// </summary>
         [DllImport(DllName, EntryPoint = "sendPoints")]
         public static extern void SendPoints(Point[] points, int length);
+        #endregion
+
+        #region # 接收数组 —— static extern void ReceiveArray(IntPtr arrayDescPtr)
+        /// <summary>
+        /// 接收数组
+        /// </summary>
+        [DllImport(DllName, EntryPoint = "receiveArray")]
+        public static extern void ReceiveArray(IntPtr arrayDescPtr);
+        #endregion
+
+        #region # 接收数组指针 —— static extern IntPtr ReceiveArrayPtr()
+        /// <summary>
+        /// 接收数组指针
+        /// </summary>
+        [DllImport(DllName, EntryPoint = "receiveArrayPtr")]
+        public static extern IntPtr ReceiveArrayPtr();
+        #endregion
+
+        #region # 释放数组指针 —— static extern void DisposeArrayPtr(IntPtr arrayPtr)
+        /// <summary>
+        /// 释放数组指针
+        /// </summary>
+        [DllImport(DllName, EntryPoint = "disposeArrayPtr")]
+        public static extern void DisposeArrayPtr(IntPtr arrayPtr);
         #endregion
     }
 }
