@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="platform_array.h" />
+    <ClInclude Include="platform_exception.h" />
     <ClInclude Include="platform_primitives.h" />
     <ClInclude Include="platform_string.h" />
     <ClInclude Include="platform_struct.h" />
@@ -159,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="platform_array.cpp" />
+    <ClCompile Include="platform_exception.cpp" />
     <ClCompile Include="platform_primitives.cpp" />
     <ClCompile Include="platform_string.cpp" />
     <ClCompile Include="platform_struct.cpp" />

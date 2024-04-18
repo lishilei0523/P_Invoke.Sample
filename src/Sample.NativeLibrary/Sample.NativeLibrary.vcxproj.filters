@@ -16,6 +16,9 @@
     <ClInclude Include="platform_struct.h">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="platform_exception.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="point.cpp">
@@ -31,6 +34,9 @@
       <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="platform_struct.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="platform_exception.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>

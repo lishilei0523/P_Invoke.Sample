@@ -9,9 +9,7 @@ namespace Sample.Invoker
     {
         static void Main()
         {
-            //TODO 结构体嵌套数组数据封送
             //TODO 结构体嵌套结构体数据封送
-            //TODO 异常封送
 
             //TestSendPrimitives();
             //TestReceivePrimitives();
@@ -20,11 +18,13 @@ namespace Sample.Invoker
             //TestSendNumbers();
             //TestReceiveNumbers();
             //TestSendStrings();
-            TestSendStructs();
+            //TestSendStructs();
             //TestSendStruct();
             //TestSendStructPtr();
             //TestReceiveStruct();
             //TestReceiveStructPtr();
+            //TestReceiveHandledExpcetion();
+            TestReceiveUnhandledExpcetion();
 
             Console.ReadKey();
         }
@@ -176,6 +176,32 @@ namespace Sample.Invoker
             Platform.DisposePointPtr(pointPtr);
 
             Console.WriteLine("------------------------------");
+        }
+
+        static void TestReceiveHandledExpcetion()
+        {
+            try
+            {
+                Platform.ReceiveHandledExpcetion();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                Console.WriteLine("异常");
+            }
+        }
+
+        static void TestReceiveUnhandledExpcetion()
+        {
+            try
+            {
+                Platform.ReceiveUnhandledExpcetion();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                Console.WriteLine("异常");
+            }
         }
     }
 }
