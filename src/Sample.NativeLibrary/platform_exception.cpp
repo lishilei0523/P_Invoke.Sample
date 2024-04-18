@@ -2,7 +2,6 @@
 #include <string>
 #include <exception>
 #include "platform_exception.h"
-
 using namespace std;
 
 void receiveHandledExpcetion()
