@@ -157,6 +157,7 @@
     <ClInclude Include="platform_string.h" />
     <ClInclude Include="platform_struct.h" />
     <ClInclude Include="point.h" />
+    <ClInclude Include="rectangle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="platform_array.cpp" />
@@ -165,6 +166,7 @@
     <ClCompile Include="platform_string.cpp" />
     <ClCompile Include="platform_struct.cpp" />
     <ClCompile Include="point.cpp" />
+    <ClCompile Include="rectangle.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

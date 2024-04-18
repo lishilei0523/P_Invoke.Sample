@@ -19,6 +19,9 @@
     <ClInclude Include="platform_exception.h">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="rectangle.h">
+      <Filter>Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="point.cpp">
@@ -38,6 +41,9 @@
     </ClCompile>
     <ClCompile Include="platform_exception.cpp">
       <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="rectangle.cpp">
+      <Filter>Models</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

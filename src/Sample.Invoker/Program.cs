@@ -2,6 +2,7 @@
 using Sample.Invoker.Models;
 using System;
 using System.Runtime.InteropServices;
+using Rectangle = Sample.Invoker.Models.Rectangle;
 
 namespace Sample.Invoker
 {
@@ -9,8 +10,6 @@ namespace Sample.Invoker
     {
         static void Main()
         {
-            //TODO 结构体嵌套结构体数据封送
-
             //TestSendPrimitives();
             //TestReceivePrimitives();
             //TestSendString();
@@ -20,11 +19,15 @@ namespace Sample.Invoker
             //TestSendStrings();
             //TestSendStructs();
             //TestSendStruct();
+            //TestSendComplexStruct();
             //TestSendStructPtr();
+            //TestSendComplexStructPtr();
             //TestReceiveStruct();
+            //TestReceiveComplexStruct();
             //TestReceiveStructPtr();
+            TestReceiveComplexStructPtr();
             //TestReceiveHandledExpcetion();
-            TestReceiveUnhandledExpcetion();
+            //TestReceiveUnhandledExpcetion();
 
             Console.ReadKey();
         }
@@ -116,6 +119,23 @@ namespace Sample.Invoker
             Platform.SendPoint(point);
         }
 
+        static void TestSendComplexStruct()
+        {
+            Point point1 = new Point("C# Point Min", 11, 12);
+            point1.Titles = ["Title: 1.1f", "Title: 1.2f"];
+            point1.Angles = [1.1f, 1.2f];
+            Point point2 = new Point("C# Point Max", 21, 22);
+            point2.Titles = ["Title: 2.1f", "Title: 2.2f"];
+            point2.Angles = [2.1f, 2.2f];
+            Rectangle rectangle = new Rectangle
+            {
+                Min = point1,
+                Max = point2
+            };
+
+            Platform.SendRectangle(rectangle);
+        }
+
         static void TestSendStructPtr()
         {
             Point point = new Point("C# Point", 33, 44);
@@ -131,6 +151,31 @@ namespace Sample.Invoker
 
             //释放资源
             Marshal.FreeHGlobal(pointPtr);
+        }
+
+        static void TestSendComplexStructPtr()
+        {
+            Point point1 = new Point("C# Point Min", 11, 12);
+            point1.Titles = ["Title: 1.1f", "Title: 1.2f"];
+            point1.Angles = [1.1f, 1.2f];
+            Point point2 = new Point("C# Point Max", 21, 22);
+            point2.Titles = ["Title: 2.1f", "Title: 2.2f"];
+            point2.Angles = [2.1f, 2.2f];
+            Rectangle rectangle = new Rectangle
+            {
+                Min = point1,
+                Max = point2
+            };
+
+            //转结构体指针
+            IntPtr rectanglePtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Rectangle)));
+            Marshal.StructureToPtr(rectangle, rectanglePtr, false);
+
+            //发送
+            Platform.SendRectanglePtr(rectanglePtr);
+
+            //释放资源
+            Marshal.FreeHGlobal(rectanglePtr);
         }
 
         static void TestReceiveStruct()
@@ -156,6 +201,39 @@ namespace Sample.Invoker
             Console.WriteLine("------------------------------");
         }
 
+        static void TestReceiveComplexStruct()
+        {
+            Console.WriteLine("C# 接收嵌套结构体");
+
+            IntPtr rectanglePtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Rectangle)));
+            Platform.ReceiveRectangle(rectanglePtr);
+            Rectangle rectangle = Marshal.PtrToStructure<Rectangle>(rectanglePtr);
+            Point point1 = rectangle.Min;
+            Point point2 = rectangle.Max;
+
+            Console.WriteLine($"C# PointMin.Name: {point1.Name}");
+            Console.WriteLine($"C# PointMin.X: {point1.X}");
+            Console.WriteLine($"C# PointMin.Y: {point1.Y}");
+            for (int i = 0; i < point1.Angles.Length; i++)
+            {
+                Console.WriteLine($"C# PointMin.Titles[{i}]: {point1.Titles[i]}");
+                Console.WriteLine($"C# PointMin.Angles[{i}]: {point1.Angles[i]}");
+            }
+            Console.WriteLine($"C# PointMax.Name: {point2.Name}");
+            Console.WriteLine($"C# PointMax.X: {point2.X}");
+            Console.WriteLine($"C# PointMax.Y: {point2.Y}");
+            for (int i = 0; i < point2.Angles.Length; i++)
+            {
+                Console.WriteLine($"C# PointMax.Titles[{i}]: {point2.Titles[i]}");
+                Console.WriteLine($"C# PointMax.Angles[{i}]: {point2.Angles[i]}");
+            }
+
+            //释放资源
+            Marshal.FreeHGlobal(rectanglePtr);
+
+            Console.WriteLine("------------------------------");
+        }
+
         static void TestReceiveStructPtr()
         {
             Console.WriteLine("C# 接收结构体指针");
@@ -174,6 +252,38 @@ namespace Sample.Invoker
 
             //释放资源
             Platform.DisposePointPtr(pointPtr);
+
+            Console.WriteLine("------------------------------");
+        }
+
+        static void TestReceiveComplexStructPtr()
+        {
+            Console.WriteLine("C# 接收嵌套结构体指针");
+
+            IntPtr rectanglePtr = Platform.ReceiveRectanglePtr();
+            Rectangle rectangle = Marshal.PtrToStructure<Rectangle>(rectanglePtr);
+            Point point1 = rectangle.Min;
+            Point point2 = rectangle.Max;
+
+            Console.WriteLine($"C# PointMin.Name: {point1.Name}");
+            Console.WriteLine($"C# PointMin.X: {point1.X}");
+            Console.WriteLine($"C# PointMin.Y: {point1.Y}");
+            for (int i = 0; i < point1.Angles.Length; i++)
+            {
+                Console.WriteLine($"C# PointMin.Titles[{i}]: {point1.Titles[i]}");
+                Console.WriteLine($"C# PointMin.Angles[{i}]: {point1.Angles[i]}");
+            }
+            Console.WriteLine($"C# PointMax.Name: {point2.Name}");
+            Console.WriteLine($"C# PointMax.X: {point2.X}");
+            Console.WriteLine($"C# PointMax.Y: {point2.Y}");
+            for (int i = 0; i < point2.Angles.Length; i++)
+            {
+                Console.WriteLine($"C# PointMax.Titles[{i}]: {point2.Titles[i]}");
+                Console.WriteLine($"C# PointMax.Angles[{i}]: {point2.Angles[i]}");
+            }
+
+            //释放资源
+            Platform.DisposeRectanglePtr(rectanglePtr);
 
             Console.WriteLine("------------------------------");
         }
