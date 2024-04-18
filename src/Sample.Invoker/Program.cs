@@ -10,6 +10,14 @@ namespace Sample.Invoker
     {
         static void Main()
         {
+#if NET40_OR_GREATER
+            Console.WriteLine("From .NET Framework");
+            Console.WriteLine("--------------------------------");
+#endif
+#if NETCOREAPP3_1_OR_GREATER
+            Console.WriteLine("From .NET Core");
+            Console.WriteLine("--------------------------------");
+#endif
             //TestSendPrimitives();
             //TestReceivePrimitives();
             //TestSendString();
@@ -19,11 +27,11 @@ namespace Sample.Invoker
             //TestSendStrings();
             //TestSendStructs();
             //TestSendStruct();
-            //TestSendComplexStruct();
+            TestSendComplexStruct();
             //TestSendStructPtr();
-            //TestSendComplexStructPtr();
+            TestSendComplexStructPtr();
             //TestReceiveStruct();
-            //TestReceiveComplexStruct();
+            TestReceiveComplexStruct();
             //TestReceiveStructPtr();
             TestReceiveComplexStructPtr();
             //TestReceiveHandledExpcetion();
@@ -83,12 +91,12 @@ namespace Sample.Invoker
         static void TestSendStrings()
         {
             string[] lines =
-            [
+            {
                 "床前明月光",
                 "疑是地上霜",
                 "举头望明月",
                 "低头思故乡"
-            ];
+            };
             Platform.SendStrings(lines, lines.Length);
         }
 
@@ -98,15 +106,15 @@ namespace Sample.Invoker
             Point point2 = new Point("Point2", 2, 2);
             Point point3 = new Point("Point3", 3, 3);
             Point point4 = new Point("Point4", 4, 4);
-            point1.Titles = ["Title: 1.1f", "Title: 1.2f"];
-            point2.Titles = ["Title: 2.1f", "Title: 2.2f"];
-            point3.Titles = ["Title: 3.1f", "Title: 3.2f"];
-            point4.Titles = ["Title: 4.1f", "Title: 4.2f"];
-            point1.Angles = [1.1f, 1.2f];
-            point2.Angles = [2.1f, 2.2f];
-            point3.Angles = [3.1f, 3.2f];
-            point4.Angles = [4.1f, 4.2f];
-            Point[] points = [point1, point2, point3, point4];
+            point1.Titles = new[] { "Title: 1.1f", "Title: 1.2f" };
+            point2.Titles = new[] { "Title: 2.1f", "Title: 2.2f" };
+            point3.Titles = new[] { "Title: 3.1f", "Title: 3.2f" };
+            point4.Titles = new[] { "Title: 4.1f", "Title: 4.2f" };
+            point1.Angles = new[] { 1.1f, 1.2f };
+            point2.Angles = new[] { 2.1f, 2.2f };
+            point3.Angles = new[] { 3.1f, 3.2f };
+            point4.Angles = new[] { 4.1f, 4.2f };
+            Point[] points = { point1, point2, point3, point4 };
 
             Platform.SendPoints(points, points.Length);
         }
@@ -114,24 +122,20 @@ namespace Sample.Invoker
         static void TestSendStruct()
         {
             Point point = new Point("C# Point", 11, 22);
-            point.Titles = ["Title: 1.1f", "Title: 2.2f"];
-            point.Angles = [1.1f, 2.2f];
+            point.Titles = new[] { "Title: 1.1f", "Title: 2.2f" };
+            point.Angles = new[] { 1.1f, 2.2f };
             Platform.SendPoint(point);
         }
 
         static void TestSendComplexStruct()
         {
             Point point1 = new Point("C# Point Min", 11, 12);
-            point1.Titles = ["Title: 1.1f", "Title: 1.2f"];
-            point1.Angles = [1.1f, 1.2f];
+            point1.Titles = new[] { "Title: 1.1f", "Title: 1.2f" };
+            point1.Angles = new[] { 1.1f, 1.2f };
             Point point2 = new Point("C# Point Max", 21, 22);
-            point2.Titles = ["Title: 2.1f", "Title: 2.2f"];
-            point2.Angles = [2.1f, 2.2f];
-            Rectangle rectangle = new Rectangle
-            {
-                Min = point1,
-                Max = point2
-            };
+            point2.Titles = new[] { "Title: 2.1f", "Title: 2.2f" };
+            point2.Angles = new[] { 2.1f, 2.2f };
+            Rectangle rectangle = new Rectangle(point1, point2);
 
             Platform.SendRectangle(rectangle);
         }
@@ -139,8 +143,8 @@ namespace Sample.Invoker
         static void TestSendStructPtr()
         {
             Point point = new Point("C# Point", 33, 44);
-            point.Titles = ["Title: 3.3f", "Title: 4.4f"];
-            point.Angles = [3.3f, 4.4f];
+            point.Titles = new[] { "Title: 3.3f", "Title: 4.4f" };
+            point.Angles = new[] { 3.3f, 4.4f };
 
             //转结构体指针
             IntPtr pointPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Point)));
@@ -156,16 +160,12 @@ namespace Sample.Invoker
         static void TestSendComplexStructPtr()
         {
             Point point1 = new Point("C# Point Min", 11, 12);
-            point1.Titles = ["Title: 1.1f", "Title: 1.2f"];
-            point1.Angles = [1.1f, 1.2f];
+            point1.Titles = new[] { "Title: 1.1f", "Title: 1.2f" };
+            point1.Angles = new[] { 1.1f, 1.2f };
             Point point2 = new Point("C# Point Max", 21, 22);
-            point2.Titles = ["Title: 2.1f", "Title: 2.2f"];
-            point2.Angles = [2.1f, 2.2f];
-            Rectangle rectangle = new Rectangle
-            {
-                Min = point1,
-                Max = point2
-            };
+            point2.Titles = new[] { "Title: 2.1f", "Title: 2.2f" };
+            point2.Angles = new[] { 2.1f, 2.2f };
+            Rectangle rectangle = new Rectangle(point1, point2);
 
             //转结构体指针
             IntPtr rectanglePtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Rectangle)));

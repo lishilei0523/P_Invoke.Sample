@@ -5,8 +5,6 @@ namespace Sample.Invoker.Models
     [StructLayout(LayoutKind.Sequential)]
     public struct Point
     {
-        public Point() { }
-
         public Point(string name, int x, int y)
             : this()
         {
