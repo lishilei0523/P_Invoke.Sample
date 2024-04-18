@@ -15,11 +15,13 @@ namespace Sample.Invoker.Models
             this.Y = y;
         }
 
-        [MarshalAs(UnmanagedType.LPStr)]
         public string Name;
 
         public int X;
 
         public int Y;
+
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+        public float[] Angles;
     }
 }

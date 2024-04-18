@@ -102,12 +102,14 @@ namespace Sample.Invoker
         static void TestSendStruct()
         {
             Point point = new Point("C# Point", 11, 22);
+            point.Angles = [1.1f, 2.2f];
             Platform.SendPoint(point);
         }
 
         static void TestSendStructPtr()
         {
             Point point = new Point("C# Point", 33, 44);
+            point.Angles = [3.3f, 4.4f];
 
             //转结构体指针
             IntPtr pointPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Point)));
@@ -122,6 +124,8 @@ namespace Sample.Invoker
 
         static void TestReceiveStruct()
         {
+            Console.WriteLine("C# 接收结构体");
+
             IntPtr pointPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Point)));
             Platform.ReceivePoint(pointPtr);
             Point point = Marshal.PtrToStructure<Point>(pointPtr);
@@ -129,22 +133,36 @@ namespace Sample.Invoker
             Console.WriteLine($"C# Point.Name: {point.Name}");
             Console.WriteLine($"C# Point.X: {point.X}");
             Console.WriteLine($"C# Point.Y: {point.Y}");
+            for (int i = 0; i < point.Angles.Length; i++)
+            {
+                Console.WriteLine($"C# Point.Angles[{i}]: {point.Angles[i]}");
+            }
 
             //释放资源
             Marshal.FreeHGlobal(pointPtr);
+
+            Console.WriteLine("------------------------------");
         }
 
         static void TestReceiveStructPtr()
         {
+            Console.WriteLine("C# 接收结构体指针");
+
             IntPtr pointPtr = Platform.ReceivePointPtr();
             Point point = Marshal.PtrToStructure<Point>(pointPtr);
 
             Console.WriteLine($"C# PointPtr.Name: {point.Name}");
             Console.WriteLine($"C# PointPtr.X: {point.X}");
             Console.WriteLine($"C# PointPtr.Y: {point.Y}");
+            for (int i = 0; i < point.Angles.Length; i++)
+            {
+                Console.WriteLine($"C# Point.Angles[{i}]: {point.Angles[i]}");
+            }
 
             //释放资源
             Platform.DisposePointPtr(pointPtr);
+
+            Console.WriteLine("------------------------------");
         }
     }
 }

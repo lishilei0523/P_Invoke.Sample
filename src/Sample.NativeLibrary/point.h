@@ -9,4 +9,5 @@ struct Point
 	const char* Name;
 	int X;
 	int Y;
+	float Angles[2];
 };
