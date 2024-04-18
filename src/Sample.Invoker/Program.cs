@@ -76,17 +76,6 @@ namespace Sample.Invoker
             Platform.SendNumbers(numbers, numbers.Length);
         }
 
-        static unsafe void TestReceiveNumbers()
-        {
-            IntPtr numbersPtr = Platform.ReceiveNumbers();
-            int* pointer = (int*)numbersPtr.ToPointer();
-            for (int i = 0; i < 5; i++)
-            {
-                Console.WriteLine(pointer[i]);
-            }
-            NativeMemory.Clear(pointer, sizeof(int) * 5);
-        }
-
         static void TestSendStrings()
         {
             string[] lines =
@@ -102,6 +91,7 @@ namespace Sample.Invoker
         static void TestSendStruct()
         {
             Point point = new Point("C# Point", 11, 22);
+            point.Titles = ["Title: 1.1f", "Title: 2.2f"];
             point.Angles = [1.1f, 2.2f];
             Platform.SendPoint(point);
         }
@@ -109,6 +99,7 @@ namespace Sample.Invoker
         static void TestSendStructPtr()
         {
             Point point = new Point("C# Point", 33, 44);
+            point.Titles = ["Title: 3.3f", "Title: 4.4f"];
             point.Angles = [3.3f, 4.4f];
 
             //转结构体指针
@@ -135,6 +126,7 @@ namespace Sample.Invoker
             Console.WriteLine($"C# Point.Y: {point.Y}");
             for (int i = 0; i < point.Angles.Length; i++)
             {
+                Console.WriteLine($"C# Point.Titles[{i}]: {point.Titles[i]}");
                 Console.WriteLine($"C# Point.Angles[{i}]: {point.Angles[i]}");
             }
 
@@ -156,6 +148,7 @@ namespace Sample.Invoker
             Console.WriteLine($"C# PointPtr.Y: {point.Y}");
             for (int i = 0; i < point.Angles.Length; i++)
             {
+                Console.WriteLine($"C# Point.Titles[{i}]: {point.Titles[i]}");
                 Console.WriteLine($"C# Point.Angles[{i}]: {point.Angles[i]}");
             }
 

@@ -22,6 +22,9 @@ namespace Sample.Invoker.Models
         public int Y;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+        public string[] Titles;
+
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
         public float[] Angles;
     }
 }

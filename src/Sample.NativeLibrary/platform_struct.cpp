@@ -11,7 +11,8 @@ void sendPoint(const Point point)
 	std::cout << "C++ Point.Y: " << point.Y << endl;
 	for (int i = 0; i < 2; i++)
 	{
-		std::cout << "C++ Point.Angle[" << i << "]: " << point.Angles[i] << endl;
+		std::cout << "C++ Point.Titles[" << i << "]: " << point.Titles[i] << endl;
+		std::cout << "C++ Point.Angles[" << i << "]: " << point.Angles[i] << endl;
 	}
 
 	std::cout << "------------------------------" << endl;
@@ -26,7 +27,8 @@ void sendPointPtr(const Point* point)
 	std::cout << "C++ PointPtr.Y: " << point->Y << endl;
 	for (int i = 0; i < 2; i++)
 	{
-		std::cout << "C++ Point.Angle[" << i << "]: " << point->Angles[i] << endl;
+		std::cout << "C++ Point.Titles[" << i << "]: " << point->Titles[i] << endl;
+		std::cout << "C++ Point.Angles[" << i << "]: " << point->Angles[i] << endl;
 	}
 
 	std::cout << "------------------------------" << endl;
@@ -35,6 +37,8 @@ void sendPointPtr(const Point* point)
 Point receivePoint()
 {
 	Point point = Point("C++ Point", 55, 66);
+	point.Titles[0] = "Title: 5.5f";
+	point.Titles[1] = "Title: 6.6f";
 	point.Angles[0] = 5.5f;
 	point.Angles[1] = 6.6f;
 
@@ -44,6 +48,8 @@ Point receivePoint()
 Point* receivePointPtr()
 {
 	Point* point = new Point("C++ Point", 77, 88);
+	point->Titles[0] = "Title: 7.7f";
+	point->Titles[1] = "Title: 8.8f";
 	point->Angles[0] = 7.7f;
 	point->Angles[1] = 8.8f;
 
