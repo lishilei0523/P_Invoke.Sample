@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using Sample.Invoker.Models;
+using System.Runtime.InteropServices;
 
 namespace Sample.Invoker.Declares
 {
@@ -21,6 +22,14 @@ namespace Sample.Invoker.Declares
         /// </summary>
         [DllImport(DllName, EntryPoint = "sendStrings")]
         public static extern void SendStrings(string[] strings, int length);
+        #endregion
+
+        #region # 发送结构体数组 —— static extern void SendPoints(Point[] points, int length)
+        /// <summary>
+        /// 发送结构体数组
+        /// </summary>
+        [DllImport(DllName, EntryPoint = "sendPoints")]
+        public static extern void SendPoints(Point[] points, int length);
         #endregion
     }
 }

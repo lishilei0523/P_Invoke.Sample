@@ -1,26 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="platform_primitives.h" />
-    <ClInclude Include="platform_string.h" />
-    <ClInclude Include="platform_array.h" />
-    <ClInclude Include="platform_struct.h" />
     <ClInclude Include="point.h">
       <Filter>Models</Filter>
     </ClInclude>
+    <ClInclude Include="platform_array.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="platform_primitives.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="platform_string.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="platform_struct.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="platform_primitives.cpp" />
-    <ClCompile Include="platform_string.cpp" />
-    <ClCompile Include="platform_array.cpp" />
-    <ClCompile Include="platform_struct.cpp" />
     <ClCompile Include="point.cpp">
       <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="platform_array.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="platform_primitives.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="platform_string.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="platform_struct.cpp">
+      <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Models">
       <UniqueIdentifier>{60828e81-b91f-4f1c-b526-bc87479d9cf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{67593bfa-fa15-4740-ae0a-7391bfd87434}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{2013a697-00fb-4a4b-91d3-fa65f42a5808}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

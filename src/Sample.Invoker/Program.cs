@@ -9,7 +9,6 @@ namespace Sample.Invoker
     {
         static void Main()
         {
-            //TODO 结构体数组数据封送
             //TODO 结构体嵌套数组数据封送
             //TODO 结构体嵌套结构体数据封送
 
@@ -20,10 +19,11 @@ namespace Sample.Invoker
             //TestSendNumbers();
             //TestReceiveNumbers();
             //TestSendStrings();
-            TestSendStruct();
-            TestSendStructPtr();
-            TestReceiveStruct();
-            TestReceiveStructPtr();
+            TestSendStructs();
+            //TestSendStruct();
+            //TestSendStructPtr();
+            //TestReceiveStruct();
+            //TestReceiveStructPtr();
 
             Console.ReadKey();
         }
@@ -86,6 +86,25 @@ namespace Sample.Invoker
                 "低头思故乡"
             ];
             Platform.SendStrings(lines, lines.Length);
+        }
+
+        static void TestSendStructs()
+        {
+            Point point1 = new Point("Point1", 1, 1);
+            Point point2 = new Point("Point2", 2, 2);
+            Point point3 = new Point("Point3", 3, 3);
+            Point point4 = new Point("Point4", 4, 4);
+            point1.Titles = ["Title: 1.1f", "Title: 1.2f"];
+            point2.Titles = ["Title: 2.1f", "Title: 2.2f"];
+            point3.Titles = ["Title: 3.1f", "Title: 3.2f"];
+            point4.Titles = ["Title: 4.1f", "Title: 4.2f"];
+            point1.Angles = [1.1f, 1.2f];
+            point2.Angles = [2.1f, 2.2f];
+            point3.Angles = [3.1f, 3.2f];
+            point4.Angles = [4.1f, 4.2f];
+            Point[] points = [point1, point2, point3, point4];
+
+            Platform.SendPoints(points, points.Length);
         }
 
         static void TestSendStruct()
