@@ -1,4 +1,5 @@
 ﻿using Sample.Invoker.Declares;
+using Sample.Invoker.Models;
 using System;
 using System.Runtime.InteropServices;
 
@@ -8,7 +9,6 @@ namespace Sample.Invoker
     {
         static void Main()
         {
-            //TODO 结构体数据封送
             //TODO 结构体数组数据封送
             //TODO 结构体嵌套数组数据封送
             //TODO 结构体嵌套结构体数据封送
@@ -17,9 +17,13 @@ namespace Sample.Invoker
             //TestReceivePrimitives();
             //TestSendString();
             //TestReceiveString();
-            TestSendNumbers();
-            //TestReceiveNumber();
+            //TestSendNumbers();
+            //TestReceiveNumbers();
             //TestSendStrings();
+            //TestSendStruct();
+            //TestSendStructPtr();
+            //TestReceiveStruct();
+            //TestReceiveStructPtr();
 
             Console.ReadKey();
         }
@@ -72,7 +76,7 @@ namespace Sample.Invoker
             Platform.SendNumbers(numbers, numbers.Length);
         }
 
-        static unsafe void TestReceiveNumber()
+        static unsafe void TestReceiveNumbers()
         {
             IntPtr numbersPtr = Platform.ReceiveNumbers();
             int* pointer = (int*)numbersPtr.ToPointer();
@@ -86,13 +90,68 @@ namespace Sample.Invoker
         static void TestSendStrings()
         {
             string[] lines =
-            {
+            [
                 "床前明月光",
                 "疑是地上霜",
                 "举头望明月",
                 "低头思故乡"
-            };
+            ];
             Platform.SendStrings(lines, lines.Length);
+        }
+
+        static void TestSendStruct()
+        {
+            Point point = new Point
+            {
+                X = 11,
+                Y = 22
+            };
+
+            Platform.SendPoint(point);
+        }
+
+        static void TestSendStructPtr()
+        {
+            Point point = new Point
+            {
+                X = 33,
+                Y = 44
+            };
+
+            //转结构体指针
+            IntPtr pointPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Point)));
+            Marshal.StructureToPtr(point, pointPtr, false);
+
+            //发送
+            Platform.SendPointPtr(pointPtr);
+
+            //释放资源
+            Marshal.FreeHGlobal(pointPtr);
+        }
+
+        static void TestReceiveStruct()
+        {
+            IntPtr pointPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Point)));
+            Platform.ReceivePoint(pointPtr);
+            Point point = Marshal.PtrToStructure<Point>(pointPtr);
+
+            Console.WriteLine($"C# Point.X: {point.X}");
+            Console.WriteLine($"C# Point.Y: {point.Y}");
+
+            //释放资源
+            Marshal.FreeHGlobal(pointPtr);
+        }
+
+        static void TestReceiveStructPtr()
+        {
+            IntPtr pointPtr = Platform.ReceivePointPtr();
+            Point point = Marshal.PtrToStructure<Point>(pointPtr);
+
+            Console.WriteLine($"C# PointPtr.X: {point.X}");
+            Console.WriteLine($"C# PointPtr.Y: {point.Y}");
+
+            //释放资源
+            Platform.DisposePointPtr(pointPtr);
         }
     }
 }

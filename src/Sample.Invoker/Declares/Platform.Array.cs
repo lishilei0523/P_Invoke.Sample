@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 namespace Sample.Invoker.Declares
 {
     /// <summary>
-    /// 平台声明 - 常量
+    /// 平台声明 - 数组
     /// </summary>
     public static partial class Platform
     {

@@ -154,11 +154,14 @@
     <ClInclude Include="platform_array.h" />
     <ClInclude Include="platform_primitives.h" />
     <ClInclude Include="platform_string.h" />
+    <ClInclude Include="platform_struct.h" />
+    <ClInclude Include="point.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="platform_array.cpp" />
     <ClCompile Include="platform_primitives.cpp" />
     <ClCompile Include="platform_string.cpp" />
+    <ClCompile Include="platform_struct.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

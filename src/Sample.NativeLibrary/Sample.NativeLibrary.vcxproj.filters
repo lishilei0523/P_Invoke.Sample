@@ -4,10 +4,20 @@
     <ClInclude Include="platform_primitives.h" />
     <ClInclude Include="platform_string.h" />
     <ClInclude Include="platform_array.h" />
+    <ClInclude Include="platform_struct.h" />
+    <ClInclude Include="point.h">
+      <Filter>Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="platform_primitives.cpp" />
     <ClCompile Include="platform_string.cpp" />
     <ClCompile Include="platform_array.cpp" />
+    <ClCompile Include="platform_struct.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Models">
+      <UniqueIdentifier>{60828e81-b91f-4f1c-b526-bc87479d9cf7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
