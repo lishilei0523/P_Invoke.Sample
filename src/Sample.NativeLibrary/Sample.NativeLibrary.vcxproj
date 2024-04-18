@@ -162,6 +162,7 @@
     <ClCompile Include="platform_primitives.cpp" />
     <ClCompile Include="platform_string.cpp" />
     <ClCompile Include="platform_struct.cpp" />
+    <ClCompile Include="point.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

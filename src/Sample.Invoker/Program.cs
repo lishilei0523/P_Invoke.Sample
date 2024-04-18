@@ -20,10 +20,10 @@ namespace Sample.Invoker
             //TestSendNumbers();
             //TestReceiveNumbers();
             //TestSendStrings();
-            //TestSendStruct();
-            //TestSendStructPtr();
-            //TestReceiveStruct();
-            //TestReceiveStructPtr();
+            TestSendStruct();
+            TestSendStructPtr();
+            TestReceiveStruct();
+            TestReceiveStructPtr();
 
             Console.ReadKey();
         }
@@ -101,22 +101,13 @@ namespace Sample.Invoker
 
         static void TestSendStruct()
         {
-            Point point = new Point
-            {
-                X = 11,
-                Y = 22
-            };
-
+            Point point = new Point("C# Point", 11, 22);
             Platform.SendPoint(point);
         }
 
         static void TestSendStructPtr()
         {
-            Point point = new Point
-            {
-                X = 33,
-                Y = 44
-            };
+            Point point = new Point("C# Point", 33, 44);
 
             //转结构体指针
             IntPtr pointPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Point)));
@@ -135,6 +126,7 @@ namespace Sample.Invoker
             Platform.ReceivePoint(pointPtr);
             Point point = Marshal.PtrToStructure<Point>(pointPtr);
 
+            Console.WriteLine($"C# Point.Name: {point.Name}");
             Console.WriteLine($"C# Point.X: {point.X}");
             Console.WriteLine($"C# Point.Y: {point.Y}");
 
@@ -147,6 +139,7 @@ namespace Sample.Invoker
             IntPtr pointPtr = Platform.ReceivePointPtr();
             Point point = Marshal.PtrToStructure<Point>(pointPtr);
 
+            Console.WriteLine($"C# PointPtr.Name: {point.Name}");
             Console.WriteLine($"C# PointPtr.X: {point.X}");
             Console.WriteLine($"C# PointPtr.Y: {point.Y}");
 

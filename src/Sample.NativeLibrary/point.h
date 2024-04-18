@@ -2,11 +2,11 @@
 
 struct Point
 {
-	~Point()
-	{
-		std::cout << "C++ Point析构函数调用" << std::endl;
-	}
+	Point();
+	Point(const char* name, const int x, const int y);
+	~Point();
 
+	const char* Name;
 	int X;
 	int Y;
 };
