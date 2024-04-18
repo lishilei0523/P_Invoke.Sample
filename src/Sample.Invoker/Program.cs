@@ -11,6 +11,7 @@ namespace Sample.Invoker
         {
             //TODO 结构体嵌套数组数据封送
             //TODO 结构体嵌套结构体数据封送
+            //TODO 异常封送
 
             //TestSendPrimitives();
             //TestReceivePrimitives();
