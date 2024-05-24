@@ -25,11 +25,11 @@
     <ClInclude Include="array_desc.h">
       <Filter>Models</Filter>
     </ClInclude>
+    <ClInclude Include="matrix_desc.h">
+      <Filter>Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="point.cpp">
-      <Filter>Models</Filter>
-    </ClCompile>
     <ClCompile Include="platform_array.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
@@ -44,12 +44,6 @@
     </ClCompile>
     <ClCompile Include="platform_exception.cpp">
       <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="rectangle.cpp">
-      <Filter>Models</Filter>
-    </ClCompile>
-    <ClCompile Include="array_desc.cpp">
-      <Filter>Models</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

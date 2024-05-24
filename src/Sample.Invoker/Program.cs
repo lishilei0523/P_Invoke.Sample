@@ -25,8 +25,8 @@ namespace Sample.Invoker
             //TestReceiveNumbers();
             //TestSendStrings();
             //TestSendStructs();
-            //TestReceiveArray();
-            TestReceiveArrayPtr();
+            TestReceiveArray();
+            TestReceiveMatrix();
             //TestSendStruct();
             //TestSendComplexStruct();
             //TestSendStructPtr();
@@ -124,37 +124,40 @@ namespace Sample.Invoker
         {
             Console.WriteLine("C# 接收数组");
 
-            IntPtr arrayDescPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(ArrayDesc)));
-            Platform.ReceiveArray(arrayDescPtr);
-            ArrayDesc arrayDesc = Marshal.PtrToStructure<ArrayDesc>(arrayDescPtr);
+            IntPtr pointer = Platform.ReceiveArray();
+            ArrayDesc arrayDesc = Marshal.PtrToStructure<ArrayDesc>(pointer);
 
-            int* arrayPtr = (int*)arrayDesc.Numbers.ToPointer();
-            for (int i = 0; i < arrayDesc.Length; i++)
+            Span<int> span = new Span<int>(arrayDesc.Numbers.ToPointer(), arrayDesc.Length);
+            for (int i = 0; i < span.Length; i++)
             {
-                Console.WriteLine($"C# Array[{i}]: {arrayPtr[i]}");
+                Console.WriteLine($"C# Array[{i}]: {span[i]}");
             }
 
             //释放资源
-            Marshal.FreeHGlobal(arrayDescPtr);
+            Platform.DisposeArray(pointer);
 
             Console.WriteLine("------------------------------");
         }
 
-        static unsafe void TestReceiveArrayPtr()
+        static unsafe void TestReceiveMatrix()
         {
-            Console.WriteLine("C# 接收数组指针");
+            Console.WriteLine("C# 接收矩阵");
 
-            IntPtr arrayDescPtr = Platform.ReceiveArrayPtr();
-            ArrayDesc arrayDesc = Marshal.PtrToStructure<ArrayDesc>(arrayDescPtr);
-
-            int* arrayPtr = (int*)arrayDesc.Numbers.ToPointer();
-            for (int i = 0; i < arrayDesc.Length; i++)
+            IntPtr pointer = Platform.ReceiveMatrix();
+            MatrixDesc matrixDesc = Marshal.PtrToStructure<MatrixDesc>(pointer);
+            Span<IntPtr> span = new Span<IntPtr>(matrixDesc.Matrix.ToPointer(), matrixDesc.Rows);
+            for (int rowIndex = 0; rowIndex < matrixDesc.Rows; rowIndex++)
             {
-                Console.WriteLine($"C# Array[{i}]: {arrayPtr[i]}");
+                IntPtr rowPtr = span[rowIndex];
+                Span<float> row = new Span<float>(rowPtr.ToPointer(), matrixDesc.Cols);
+                for (int colIndex = 0; colIndex < matrixDesc.Cols; colIndex++)
+                {
+                    Console.WriteLine($"C# Matrix[{rowIndex}][{colIndex}]: {row[colIndex]}");
+                }
             }
 
             //释放资源
-            Platform.DisposeArrayPtr(arrayDescPtr);
+            Platform.DisposeMatrix(pointer);
 
             Console.WriteLine("------------------------------");
         }

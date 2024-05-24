@@ -33,28 +33,36 @@ namespace Sample.Invoker.Declares
         public static extern void SendPoints(Point[] points, int length);
         #endregion
 
-        #region # 接收数组 —— static extern void ReceiveArray(IntPtr arrayDescPtr)
+        #region # 接收数组 —— static extern IntPtr ReceiveArray()
         /// <summary>
         /// 接收数组
         /// </summary>
         [DllImport(DllName, EntryPoint = "receiveArray")]
-        public static extern void ReceiveArray(IntPtr arrayDescPtr);
+        public static extern IntPtr ReceiveArray();
         #endregion
 
-        #region # 接收数组指针 —— static extern IntPtr ReceiveArrayPtr()
+        #region # 接收矩阵 —— static extern IntPtr ReceiveMatrix()
         /// <summary>
-        /// 接收数组指针
+        /// 接收矩阵
         /// </summary>
-        [DllImport(DllName, EntryPoint = "receiveArrayPtr")]
-        public static extern IntPtr ReceiveArrayPtr();
+        [DllImport(DllName, EntryPoint = "receiveMatrix")]
+        public static extern IntPtr ReceiveMatrix();
         #endregion
 
-        #region # 释放数组指针 —— static extern void DisposeArrayPtr(IntPtr arrayPtr)
+        #region # 释放数组 —— static extern void DisposeArray(IntPtr pointer)
         /// <summary>
-        /// 释放数组指针
+        /// 释放数组
         /// </summary>
-        [DllImport(DllName, EntryPoint = "disposeArrayPtr")]
-        public static extern void DisposeArrayPtr(IntPtr arrayPtr);
+        [DllImport(DllName, EntryPoint = "disposeArray")]
+        public static extern void DisposeArray(IntPtr pointer);
+        #endregion
+
+        #region # 释放矩阵 —— static extern void DisposeMatrix(IntPtr pointer)
+        /// <summary>
+        /// 释放矩阵
+        /// </summary>
+        [DllImport(DllName, EntryPoint = "disposeMatrix")]
+        public static extern void DisposeMatrix(IntPtr pointer);
         #endregion
     }
 }
