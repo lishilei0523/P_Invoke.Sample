@@ -6,9 +6,9 @@
 #include "matrix_desc.h"
 #include "range_desc.h"
 
-EXPORT void CALLING_MODE sendNumbers(int numbers[], const int length);
-EXPORT void CALLING_MODE sendStrings(char* strings[], const int length);
-EXPORT void CALLING_MODE sendPoints(Point points[], const int length);
+EXPORT void CALLING_MODE sendNumbers(int numbers[], int length);
+EXPORT void CALLING_MODE sendStrings(char* strings[], int length);
+EXPORT void CALLING_MODE sendPoints(Point points[], int length);
 EXPORT ArrayDesc* CALLING_MODE receiveArray();
 EXPORT MatrixDesc* CALLING_MODE receiveMatrix();
 EXPORT RangeDesc* CALLING_MODE receiveRange();

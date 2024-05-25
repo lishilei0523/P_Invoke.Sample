@@ -41,36 +41,20 @@ namespace Sample.Invoker.Declares
         public static extern void SendRectanglePtr(IntPtr pointPtr);
         #endregion
 
-        #region # 接收结构体 —— static extern void ReceivePoint(IntPtr pointPtr)
+        #region # 接收结构体 —— static extern IntPtr ReceivePoint()
         /// <summary>
         /// 接收结构体
         /// </summary>
         [DllImport(DllName, EntryPoint = "receivePoint")]
-        public static extern void ReceivePoint(IntPtr pointPtr);
+        public static extern IntPtr ReceivePoint();
         #endregion
 
-        #region # 接收嵌套结构体 —— static extern void ReceiveRectangle(IntPtr rectanglePtr)
+        #region # 接收嵌套结构体 —— static extern IntPtr ReceiveRectangle()
         /// <summary>
         /// 接收嵌套结构体
         /// </summary>
         [DllImport(DllName, EntryPoint = "receiveRectangle")]
-        public static extern void ReceiveRectangle(IntPtr rectanglePtr);
-        #endregion
-
-        #region # 接收结构体指针 —— static extern IntPtr ReceivePointPtr()
-        /// <summary>
-        /// 接收结构体指针
-        /// </summary>
-        [DllImport(DllName, EntryPoint = "receivePointPtr")]
-        public static extern IntPtr ReceivePointPtr();
-        #endregion
-
-        #region # 接收嵌套结构体指针 —— static extern IntPtr ReceiveRectanglePtr()
-        /// <summary>
-        /// 接收嵌套结构体指针
-        /// </summary>
-        [DllImport(DllName, EntryPoint = "receiveRectanglePtr")]
-        public static extern IntPtr ReceiveRectanglePtr();
+        public static extern IntPtr ReceiveRectangle();
         #endregion
 
         #region # 释放结构体指针 —— static extern void DisposePointPtr(IntPtr pointPtr)

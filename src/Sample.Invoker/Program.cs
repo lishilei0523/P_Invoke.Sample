@@ -17,27 +17,24 @@ namespace Sample.Invoker
             Console.WriteLine("From .NET Core");
             Console.WriteLine("--------------------------------");
 #endif
-            //TestSendPrimitives();
-            //TestReceivePrimitives();
-            //TestSendString();
-            //TestReceiveString();
-            //TestSendNumbers();
-            //TestReceiveNumbers();
-            //TestSendStrings();
-            //TestSendStructs();
-            //TestReceiveArray();
-            //TestReceiveMatrix();
+            TestSendPrimitives();
+            TestReceivePrimitives();
+            TestSendString();
+            TestReceiveString();
+            TestSendNumbers();
+            TestSendStrings();
+            TestSendStructs();
+            TestReceiveArray();
+            TestReceiveMatrix();
             TestReceiveRange();
-            //TestSendStruct();
-            //TestSendComplexStruct();
-            //TestSendStructPtr();
-            //TestSendComplexStructPtr();
-            //TestReceiveStruct();
-            //TestReceiveComplexStruct();
-            //TestReceiveStructPtr();
-            //TestReceiveComplexStructPtr();
-            //TestReceiveHandledExpcetion();
-            //TestReceiveUnhandledExpcetion();
+            TestSendStruct();
+            TestSendComplexStruct();
+            TestSendStructPtr();
+            TestSendComplexStructPtr();
+            TestReceiveStruct();
+            TestReceiveComplexStruct();
+            TestReceiveHandledExpcetion();
+            TestReceiveUnhandledExpcetion();
 
             Console.ReadKey();
         }
@@ -255,63 +252,7 @@ namespace Sample.Invoker
         {
             Console.WriteLine("C# 接收结构体");
 
-            IntPtr pointPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Point)));
-            Platform.ReceivePoint(pointPtr);
-            Point point = Marshal.PtrToStructure<Point>(pointPtr);
-
-            Console.WriteLine($"C# Point.Name: {point.Name}");
-            Console.WriteLine($"C# Point.X: {point.X}");
-            Console.WriteLine($"C# Point.Y: {point.Y}");
-            for (int i = 0; i < point.Angles.Length; i++)
-            {
-                Console.WriteLine($"C# Point.Titles[{i}]: {point.Titles[i]}");
-                Console.WriteLine($"C# Point.Angles[{i}]: {point.Angles[i]}");
-            }
-
-            //释放资源
-            Marshal.FreeHGlobal(pointPtr);
-
-            Console.WriteLine("------------------------------");
-        }
-
-        static void TestReceiveComplexStruct()
-        {
-            Console.WriteLine("C# 接收嵌套结构体");
-
-            IntPtr rectanglePtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Rectangle)));
-            Platform.ReceiveRectangle(rectanglePtr);
-            Rectangle rectangle = Marshal.PtrToStructure<Rectangle>(rectanglePtr);
-            Point point1 = rectangle.Min;
-            Point point2 = rectangle.Max;
-
-            Console.WriteLine($"C# PointMin.Name: {point1.Name}");
-            Console.WriteLine($"C# PointMin.X: {point1.X}");
-            Console.WriteLine($"C# PointMin.Y: {point1.Y}");
-            for (int i = 0; i < point1.Angles.Length; i++)
-            {
-                Console.WriteLine($"C# PointMin.Titles[{i}]: {point1.Titles[i]}");
-                Console.WriteLine($"C# PointMin.Angles[{i}]: {point1.Angles[i]}");
-            }
-            Console.WriteLine($"C# PointMax.Name: {point2.Name}");
-            Console.WriteLine($"C# PointMax.X: {point2.X}");
-            Console.WriteLine($"C# PointMax.Y: {point2.Y}");
-            for (int i = 0; i < point2.Angles.Length; i++)
-            {
-                Console.WriteLine($"C# PointMax.Titles[{i}]: {point2.Titles[i]}");
-                Console.WriteLine($"C# PointMax.Angles[{i}]: {point2.Angles[i]}");
-            }
-
-            //释放资源
-            Marshal.FreeHGlobal(rectanglePtr);
-
-            Console.WriteLine("------------------------------");
-        }
-
-        static void TestReceiveStructPtr()
-        {
-            Console.WriteLine("C# 接收结构体指针");
-
-            IntPtr pointPtr = Platform.ReceivePointPtr();
+            IntPtr pointPtr = Platform.ReceivePoint();
             Point point = Marshal.PtrToStructure<Point>(pointPtr);
 
             Console.WriteLine($"C# PointPtr.Name: {point.Name}");
@@ -329,11 +270,11 @@ namespace Sample.Invoker
             Console.WriteLine("------------------------------");
         }
 
-        static void TestReceiveComplexStructPtr()
+        static void TestReceiveComplexStruct()
         {
-            Console.WriteLine("C# 接收嵌套结构体指针");
+            Console.WriteLine("C# 接收嵌套结构体");
 
-            IntPtr rectanglePtr = Platform.ReceiveRectanglePtr();
+            IntPtr rectanglePtr = Platform.ReceiveRectangle();
             Rectangle rectangle = Marshal.PtrToStructure<Rectangle>(rectanglePtr);
             Point point1 = rectangle.Min;
             Point point2 = rectangle.Max;

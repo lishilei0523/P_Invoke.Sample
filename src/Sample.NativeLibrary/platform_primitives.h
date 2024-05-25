@@ -3,17 +3,17 @@
 #define CALLING_MODE _cdecl
 
 //发送部分
-EXPORT void CALLING_MODE sendBool(const bool enabled);
-EXPORT void CALLING_MODE sendByte(const unsigned char number);
-EXPORT void CALLING_MODE sendSByte(const char number);
-EXPORT void CALLING_MODE sendShort(const short number);
-EXPORT void CALLING_MODE sendUShort(const unsigned short number);
-EXPORT void CALLING_MODE sendInt(const int number);
-EXPORT void CALLING_MODE sendUInt(const unsigned int number);
-EXPORT void CALLING_MODE sendLong(const long long number);
-EXPORT void CALLING_MODE sendULong(const unsigned long long number);
-EXPORT void CALLING_MODE sendFloat(const float number);
-EXPORT void CALLING_MODE sendDouble(const double number);
+EXPORT void CALLING_MODE sendBool(bool enabled);
+EXPORT void CALLING_MODE sendByte(unsigned char number);
+EXPORT void CALLING_MODE sendSByte(char number);
+EXPORT void CALLING_MODE sendShort(short number);
+EXPORT void CALLING_MODE sendUShort(unsigned short number);
+EXPORT void CALLING_MODE sendInt(int number);
+EXPORT void CALLING_MODE sendUInt(unsigned int number);
+EXPORT void CALLING_MODE sendLong(long long number);
+EXPORT void CALLING_MODE sendULong(unsigned long long number);
+EXPORT void CALLING_MODE sendFloat(float number);
+EXPORT void CALLING_MODE sendDouble(double number);
 
 //接收部分
 EXPORT bool CALLING_MODE receiveBool();

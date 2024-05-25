@@ -88,35 +88,7 @@ void sendRectanglePtr(const Rectangle* rectangle)
 	std::cout << "------------------------------" << endl;
 }
 
-Point receivePoint()
-{
-	Point point = Point("C++ Point", 55, 66);
-	point.Titles[0] = "Title: 5.5f";
-	point.Titles[1] = "Title: 6.6f";
-	point.Angles[0] = 5.5f;
-	point.Angles[1] = 6.6f;
-
-	return point;
-}
-
-Rectangle receiveRectangle()
-{
-	Point point1 = Point("C++ Point Min", 11, 12);
-	point1.Titles[0] = "Title: 1.1f";
-	point1.Titles[1] = "Title: 1.2f";
-	point1.Angles[0] = 1.1f;
-	point1.Angles[1] = 1.2f;
-	Point point2 = Point("C++ Point Max", 21, 22);
-	point2.Titles[0] = "Title: 2.1f";
-	point2.Titles[1] = "Title: 2.2f";
-	point2.Angles[0] = 2.1f;
-	point2.Angles[1] = 2.2f;
-	Rectangle rectangle = Rectangle(point1, point2);
-
-	return rectangle;
-}
-
-Point* receivePointPtr()
+Point* receivePoint()
 {
 	Point* point = new Point("C++ Point", 77, 88);
 	point->Titles[0] = "Title: 7.7f";
@@ -127,7 +99,7 @@ Point* receivePointPtr()
 	return point;
 }
 
-Rectangle* receiveRectanglePtr()
+Rectangle* receiveRectangle()
 {
 	Point point1 = Point("C++ Point Min", 11, 12);
 	point1.Titles[0] = "Title: 1.1f";
