@@ -17,24 +17,24 @@ namespace Sample.Invoker
             Console.WriteLine("From .NET Core");
             Console.WriteLine("--------------------------------");
 #endif
-            TestSendPrimitives();
-            TestReceivePrimitives();
-            TestSendString();
-            TestReceiveString();
-            TestSendNumbers();
-            TestSendStrings();
-            TestSendStructs();
-            TestReceiveArray();
+            //TestSendPrimitives();
+            //TestReceivePrimitives();
+            //TestSendString();
+            //TestReceiveString();
+            //TestSendNumbers();
+            //TestSendStrings();
+            //TestSendStructs();
+            //TestReceiveArray();
             TestReceiveMatrix();
-            TestReceiveRange();
-            TestSendStruct();
-            TestSendComplexStruct();
-            TestSendStructPtr();
-            TestSendComplexStructPtr();
-            TestReceiveStruct();
-            TestReceiveComplexStruct();
-            TestReceiveHandledExpcetion();
-            TestReceiveUnhandledExpcetion();
+            //TestReceiveRange();
+            //TestSendStruct();
+            //TestSendComplexStruct();
+            //TestSendStructPtr();
+            //TestSendComplexStructPtr();
+            //TestReceiveStruct();
+            //TestReceiveComplexStruct();
+            //TestReceiveHandledExpcetion();
+            //TestReceiveUnhandledExpcetion();
 
             Console.ReadKey();
         }
@@ -143,6 +143,8 @@ namespace Sample.Invoker
 
             IntPtr pointer = Platform.ReceiveMatrix();
             MatrixDesc matrixDesc = Marshal.PtrToStructure<MatrixDesc>(pointer);
+
+            double[,] matrix = new double[matrixDesc.Rows, matrixDesc.Cols];
             Span<IntPtr> span = new Span<IntPtr>(matrixDesc.Matrix.ToPointer(), matrixDesc.Rows);
             for (int rowIndex = 0; rowIndex < matrixDesc.Rows; rowIndex++)
             {
@@ -150,6 +152,7 @@ namespace Sample.Invoker
                 Span<float> row = new Span<float>(rowPtr.ToPointer(), matrixDesc.Cols);
                 for (int colIndex = 0; colIndex < matrixDesc.Cols; colIndex++)
                 {
+                    matrix[rowIndex, colIndex] = row[colIndex];
                     Console.WriteLine($"C# Matrix[{rowIndex}][{colIndex}]: {row[colIndex]}");
                 }
             }

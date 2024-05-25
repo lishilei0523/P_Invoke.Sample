@@ -12,9 +12,9 @@ struct MatrixDesc
 	}
 	~MatrixDesc()
 	{
-		for (size_t i = 0; i < this->Rows; i++)
+		for (int rowIndex = 0; rowIndex < this->Rows; rowIndex++)
 		{
-			delete[] this->Matrix[i];
+			delete[] this->Matrix[rowIndex];
 		}
 		delete[] this->Matrix;
 		std::cout << "C++ MatrixDesc析构函数调用" << std::endl;
