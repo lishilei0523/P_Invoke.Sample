@@ -49,6 +49,14 @@ namespace Sample.Invoker.Declares
         public static extern IntPtr ReceiveMatrix();
         #endregion
 
+        #region # 接收序列 —— static extern IntPtr ReceiveRange()
+        /// <summary>
+        /// 接收序列
+        /// </summary>
+        [DllImport(DllName, EntryPoint = "receiveRange")]
+        public static extern IntPtr ReceiveRange();
+        #endregion
+
         #region # 释放数组 —— static extern void DisposeArray(IntPtr pointer)
         /// <summary>
         /// 释放数组
@@ -63,6 +71,14 @@ namespace Sample.Invoker.Declares
         /// </summary>
         [DllImport(DllName, EntryPoint = "disposeMatrix")]
         public static extern void DisposeMatrix(IntPtr pointer);
+        #endregion
+
+        #region # 释放序列 —— static extern void DisposeRange(IntPtr pointer)
+        /// <summary>
+        /// 释放序列
+        /// </summary>
+        [DllImport(DllName, EntryPoint = "disposeRange")]
+        public static extern void DisposeRange(IntPtr pointer);
         #endregion
     }
 }

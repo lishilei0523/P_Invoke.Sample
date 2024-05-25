@@ -159,6 +159,7 @@
     <ClInclude Include="platform_string.h" />
     <ClInclude Include="platform_struct.h" />
     <ClInclude Include="point.h" />
+    <ClInclude Include="range_desc.h" />
     <ClInclude Include="rectangle.h" />
   </ItemGroup>
   <ItemGroup>

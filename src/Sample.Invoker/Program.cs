@@ -25,8 +25,9 @@ namespace Sample.Invoker
             //TestReceiveNumbers();
             //TestSendStrings();
             //TestSendStructs();
-            TestReceiveArray();
-            TestReceiveMatrix();
+            //TestReceiveArray();
+            //TestReceiveMatrix();
+            TestReceiveRange();
             //TestSendStruct();
             //TestSendComplexStruct();
             //TestSendStructPtr();
@@ -158,6 +159,23 @@ namespace Sample.Invoker
 
             //释放资源
             Platform.DisposeMatrix(pointer);
+
+            Console.WriteLine("------------------------------");
+        }
+
+        static unsafe void TestReceiveRange()
+        {
+            Console.WriteLine("C# 接收序列");
+
+            IntPtr pointer = Platform.ReceiveRange();
+            RangeDesc rangeDesc = Marshal.PtrToStructure<RangeDesc>(pointer);
+            for (int i = 0; i < rangeDesc.Histogram.Length; i++)
+            {
+                Console.WriteLine($"C# Range[{i}]: {rangeDesc.Histogram[i]}");
+            }
+
+            //释放资源
+            Platform.DisposeRange(pointer);
 
             Console.WriteLine("------------------------------");
         }

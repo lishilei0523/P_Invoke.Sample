@@ -28,6 +28,9 @@
     <ClInclude Include="matrix_desc.h">
       <Filter>Models</Filter>
     </ClInclude>
+    <ClInclude Include="range_desc.h">
+      <Filter>Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="platform_array.cpp">

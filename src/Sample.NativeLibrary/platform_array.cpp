@@ -91,12 +91,32 @@ MatrixDesc* receiveMatrix()
 	return matrixDesc;
 }
 
+RangeDesc* receiveRange()
+{
+	RangeDesc* rangeDesc = new RangeDesc();
+	for (int i = 0; i < 33; i++)
+	{
+		rangeDesc->Histogram[i] = static_cast<float>(i + 1);
+	}
+	for (int i = 0; i < 33; i++)
+	{
+		std::cout << std::format("C++ Range[{}]: ", i) << rangeDesc->Histogram[i] << endl;
+	}
+
+	return rangeDesc;
+}
+
 void disposeArray(const ArrayDesc* pointer)
 {
 	delete pointer;
 }
 
 void disposeMatrix(const MatrixDesc* pointer)
+{
+	delete pointer;
+}
+
+void disposeRange(const RangeDesc* pointer)
 {
 	delete pointer;
 }
