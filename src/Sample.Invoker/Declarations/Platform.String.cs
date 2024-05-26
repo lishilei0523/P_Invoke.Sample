@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Sample.Invoker.Declares
+namespace Sample.Invoker.Declarations
 {
     /// <summary>
     /// 平台声明 - 字符串
@@ -12,7 +12,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送string
         /// </summary>
-        [DllImport(DllName, EntryPoint = "sendString")]
+        [DllImport(Platform.DllName, EntryPoint = "sendString")]
         public static extern void SendString([MarshalAs(UnmanagedType.LPStr)] string text);
         #endregion
 
@@ -20,7 +20,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收string
         /// </summary>
-        [DllImport(DllName, EntryPoint = "receiveString")]
+        [DllImport(Platform.DllName, EntryPoint = "receiveString")]
         public static extern IntPtr ReceiveString();
         #endregion
     }

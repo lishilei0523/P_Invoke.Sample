@@ -3,7 +3,7 @@
 namespace Sample.Invoker.Models
 {
     [StructLayout(LayoutKind.Sequential)]
-    public struct Rectangle
+    public readonly struct Rectangle
     {
         public Rectangle(Point min, Point max)
         {
@@ -11,7 +11,7 @@ namespace Sample.Invoker.Models
             this.Max = max;
         }
 
-        public Point Min;
-        public Point Max;
+        public readonly Point Min;
+        public readonly Point Max;
     }
 }

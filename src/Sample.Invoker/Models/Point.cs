@@ -3,26 +3,27 @@
 namespace Sample.Invoker.Models
 {
     [StructLayout(LayoutKind.Sequential)]
-    public struct Point
+    public readonly struct Point
     {
-        public Point(string name, int x, int y)
-            : this()
+        public Point(string name, int x, int y, string[] titles, float[] angles)
         {
             this.Name = name;
             this.X = x;
             this.Y = y;
+            this.Titles = titles;
+            this.Angles = angles;
         }
 
-        public string Name;
+        public readonly string Name;
 
-        public int X;
+        public readonly int X;
 
-        public int Y;
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
-        public string[] Titles;
+        public readonly int Y;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
-        public float[] Angles;
+        public readonly string[] Titles;
+
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+        public readonly float[] Angles;
     }
 }

@@ -4,7 +4,7 @@
 struct MatrixDesc
 {
 	MatrixDesc() = default;
-	MatrixDesc(float** matrix, const int rows, const int cols)
+	MatrixDesc(float** matrix, const int& rows, const int& cols)
 	{
 		this->Matrix = matrix;
 		this->Rows = rows;

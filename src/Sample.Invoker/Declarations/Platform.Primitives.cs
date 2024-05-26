@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Sample.Invoker.Declares
+namespace Sample.Invoker.Declarations
 {
     /// <summary>
     /// 平台声明 - 基元类型
@@ -13,7 +13,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送bool
         /// </summary>
-        [DllImport(DllName, EntryPoint = "sendBool")]
+        [DllImport(Platform.DllName, EntryPoint = "sendBool")]
         public static extern void SendBool(bool enabled);
         #endregion
 
@@ -21,7 +21,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送byte
         /// </summary>
-        [DllImport(DllName, EntryPoint = "sendByte")]
+        [DllImport(Platform.DllName, EntryPoint = "sendByte")]
         public static extern void SendByte(byte number);
         #endregion
 
@@ -29,7 +29,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送sbyte
         /// </summary>
-        [DllImport(DllName, EntryPoint = "sendSByte")]
+        [DllImport(Platform.DllName, EntryPoint = "sendSByte")]
         public static extern void SendSByte(sbyte number);
         #endregion
 
@@ -37,7 +37,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送short
         /// </summary>
-        [DllImport(DllName, EntryPoint = "sendShort")]
+        [DllImport(Platform.DllName, EntryPoint = "sendShort")]
         public static extern void SendShort(short number);
         #endregion
 
@@ -45,7 +45,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送ushort
         /// </summary>
-        [DllImport(DllName, EntryPoint = "sendUShort")]
+        [DllImport(Platform.DllName, EntryPoint = "sendUShort")]
         public static extern void SendUShort(ushort number);
         #endregion
 
@@ -53,7 +53,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送int
         /// </summary>
-        [DllImport(DllName, EntryPoint = "sendInt")]
+        [DllImport(Platform.DllName, EntryPoint = "sendInt")]
         public static extern void SendInt(int number);
         #endregion
 
@@ -61,7 +61,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送uint
         /// </summary>
-        [DllImport(DllName, EntryPoint = "sendUInt")]
+        [DllImport(Platform.DllName, EntryPoint = "sendUInt")]
         public static extern void SendUInt(uint number);
         #endregion
 
@@ -69,7 +69,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送long
         /// </summary>
-        [DllImport(DllName, EntryPoint = "sendLong")]
+        [DllImport(Platform.DllName, EntryPoint = "sendLong")]
         public static extern void SendLong(long number);
         #endregion
 
@@ -77,7 +77,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送ulong
         /// </summary>
-        [DllImport(DllName, EntryPoint = "sendULong")]
+        [DllImport(Platform.DllName, EntryPoint = "sendULong")]
         public static extern void SendULong(ulong number);
         #endregion
 
@@ -85,7 +85,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送float
         /// </summary>
-        [DllImport(DllName, EntryPoint = "sendFloat")]
+        [DllImport(Platform.DllName, EntryPoint = "sendFloat")]
         public static extern void SendFloat(float number);
         #endregion
 
@@ -93,7 +93,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 发送double
         /// </summary>
-        [DllImport(DllName, EntryPoint = "sendDouble")]
+        [DllImport(Platform.DllName, EntryPoint = "sendDouble")]
         public static extern void SendDouble(double number);
         #endregion
 
@@ -104,7 +104,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收bool
         /// </summary>
-        [DllImport(DllName, EntryPoint = "receiveBool")]
+        [DllImport(Platform.DllName, EntryPoint = "receiveBool")]
         public static extern bool ReceiveBool();
         #endregion
 
@@ -112,7 +112,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收byte
         /// </summary>
-        [DllImport(DllName, EntryPoint = "receiveByte")]
+        [DllImport(Platform.DllName, EntryPoint = "receiveByte")]
         public static extern byte ReceiveByte();
         #endregion
 
@@ -120,7 +120,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收sbyte
         /// </summary>
-        [DllImport(DllName, EntryPoint = "receiveSByte")]
+        [DllImport(Platform.DllName, EntryPoint = "receiveSByte")]
         public static extern sbyte ReceiveSByte();
         #endregion
 
@@ -128,7 +128,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收short
         /// </summary>
-        [DllImport(DllName, EntryPoint = "receiveShort")]
+        [DllImport(Platform.DllName, EntryPoint = "receiveShort")]
         public static extern short ReceiveShort();
         #endregion
 
@@ -136,7 +136,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收ushort
         /// </summary>
-        [DllImport(DllName, EntryPoint = "receiveUShort")]
+        [DllImport(Platform.DllName, EntryPoint = "receiveUShort")]
         public static extern ushort ReceiveUShort();
         #endregion
 
@@ -144,7 +144,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收int
         /// </summary>
-        [DllImport(DllName, EntryPoint = "receiveInt")]
+        [DllImport(Platform.DllName, EntryPoint = "receiveInt")]
         public static extern int ReceiveInt();
         #endregion
 
@@ -152,7 +152,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收uint
         /// </summary>
-        [DllImport(DllName, EntryPoint = "receiveUInt")]
+        [DllImport(Platform.DllName, EntryPoint = "receiveUInt")]
         public static extern uint ReceiveUInt();
         #endregion
 
@@ -160,7 +160,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收long
         /// </summary>
-        [DllImport(DllName, EntryPoint = "receiveLong")]
+        [DllImport(Platform.DllName, EntryPoint = "receiveLong")]
         public static extern long ReceiveLong();
         #endregion
 
@@ -168,7 +168,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收ulong
         /// </summary>
-        [DllImport(DllName, EntryPoint = "receiveULong")]
+        [DllImport(Platform.DllName, EntryPoint = "receiveULong")]
         public static extern ulong ReceiveULong();
         #endregion
 
@@ -176,7 +176,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收float
         /// </summary>
-        [DllImport(DllName, EntryPoint = "receiveFloat")]
+        [DllImport(Platform.DllName, EntryPoint = "receiveFloat")]
         public static extern float ReceiveFloat();
         #endregion
 
@@ -184,7 +184,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收double
         /// </summary>
-        [DllImport(DllName, EntryPoint = "receiveDouble")]
+        [DllImport(Platform.DllName, EntryPoint = "receiveDouble")]
         public static extern double ReceiveDouble();
         #endregion
     }

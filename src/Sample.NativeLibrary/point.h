@@ -4,7 +4,7 @@
 struct Point
 {
 	Point() = default;
-	Point(const char* name, const int x, const int y)
+	Point(const char* name, const int& x, const int& y)
 	{
 		this->Name = name;
 		this->X = x;

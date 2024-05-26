@@ -1,11 +1,11 @@
-﻿using Sample.Invoker.Declares;
+﻿using Sample.Invoker.Declarations;
 using Sample.Invoker.Models;
 using System;
 using System.Runtime.InteropServices;
 
 namespace Sample.Invoker
 {
-    class Program
+    unsafe class Program
     {
         static void Main()
         {
@@ -17,19 +17,19 @@ namespace Sample.Invoker
             Console.WriteLine("From .NET Core");
             Console.WriteLine("--------------------------------");
 #endif
-            //TestSendPrimitives();
-            //TestReceivePrimitives();
+            TestSendPrimitives();
+            TestReceivePrimitives();
             //TestSendString();
             //TestReceiveString();
             //TestSendNumbers();
             //TestSendStrings();
             //TestSendStructs();
             //TestReceiveArray();
-            TestReceiveMatrix();
             //TestReceiveRange();
+            //TestReceiveMatrix();
             //TestSendStruct();
-            //TestSendComplexStruct();
             //TestSendStructPtr();
+            //TestSendComplexStruct();
             //TestSendComplexStructPtr();
             //TestReceiveStruct();
             //TestReceiveComplexStruct();
@@ -42,31 +42,31 @@ namespace Sample.Invoker
         static void TestSendPrimitives()
         {
             Platform.SendBool(true);
-            Platform.SendByte(byte.MaxValue);
-            Platform.SendSByte(sbyte.MaxValue);
-            Platform.SendShort(short.MaxValue);
-            Platform.SendUShort(ushort.MaxValue);
-            Platform.SendInt(int.MaxValue);
-            Platform.SendUInt(uint.MaxValue);
-            Platform.SendLong(long.MaxValue);
-            Platform.SendULong(ulong.MaxValue);
-            Platform.SendFloat(float.MaxValue);
-            Platform.SendDouble(double.MaxValue);
+            Platform.SendByte(255);
+            Platform.SendSByte(127);
+            Platform.SendShort(32000);
+            Platform.SendUShort(65500);
+            Platform.SendInt(2165500);
+            Platform.SendUInt(4165500);
+            Platform.SendLong(84165500);
+            Platform.SendULong(164165500);
+            Platform.SendFloat(0.5f);
+            Platform.SendDouble(3.14);
         }
 
         static void TestReceivePrimitives()
         {
-            Console.WriteLine($"接收bool: {Platform.ReceiveBool()}");
-            Console.WriteLine($"接收byte: {Platform.ReceiveByte()}");
-            Console.WriteLine($"接收sbyte: {Platform.ReceiveSByte()}");
-            Console.WriteLine($"接收short: {Platform.ReceiveShort()}");
-            Console.WriteLine($"接收ushort: {Platform.ReceiveUShort()}");
-            Console.WriteLine($"接收int: {Platform.ReceiveInt()}");
-            Console.WriteLine($"接收uint: {Platform.ReceiveUInt()}");
-            Console.WriteLine($"接收long: {Platform.ReceiveLong()}");
-            Console.WriteLine($"接收ulong: {Platform.ReceiveULong()}");
-            Console.WriteLine($"接收float: {Platform.ReceiveFloat()}");
-            Console.WriteLine($"接收double: {Platform.ReceiveDouble()}");
+            Console.WriteLine($"C#接收bool: {Platform.ReceiveBool()}");
+            Console.WriteLine($"C#接收byte: {Platform.ReceiveByte()}");
+            Console.WriteLine($"C#接收sbyte: {Platform.ReceiveSByte()}");
+            Console.WriteLine($"C#接收short: {Platform.ReceiveShort()}");
+            Console.WriteLine($"C#接收ushort: {Platform.ReceiveUShort()}");
+            Console.WriteLine($"C#接收int: {Platform.ReceiveInt()}");
+            Console.WriteLine($"C#接收uint: {Platform.ReceiveUInt()}");
+            Console.WriteLine($"C#接收long: {Platform.ReceiveLong()}");
+            Console.WriteLine($"C#接收ulong: {Platform.ReceiveULong()}");
+            Console.WriteLine($"C#接收float: {Platform.ReceiveFloat()}");
+            Console.WriteLine($"C#接收double: {Platform.ReceiveDouble()}");
         }
 
         static void TestSendString()
@@ -91,9 +91,9 @@ namespace Sample.Invoker
         {
             string[] lines =
             {
-                "床前明月光",
-                "疑是地上霜",
-                "举头望明月",
+                "AAAAAAAA",
+                "BBBBBBBB",
+                "CCCCCCCC",
                 "低头思故乡"
             };
             Platform.SendStrings(lines, lines.Length);
@@ -101,24 +101,25 @@ namespace Sample.Invoker
 
         static void TestSendStructs()
         {
-            Point point1 = new Point("Point1", 1, 1);
-            Point point2 = new Point("Point2", 2, 2);
-            Point point3 = new Point("Point3", 3, 3);
-            Point point4 = new Point("Point4", 4, 4);
-            point1.Titles = new[] { "Title: 1.1f", "Title: 1.2f" };
-            point2.Titles = new[] { "Title: 2.1f", "Title: 2.2f" };
-            point3.Titles = new[] { "Title: 3.1f", "Title: 3.2f" };
-            point4.Titles = new[] { "Title: 4.1f", "Title: 4.2f" };
-            point1.Angles = new[] { 1.1f, 1.2f };
-            point2.Angles = new[] { 2.1f, 2.2f };
-            point3.Angles = new[] { 3.1f, 3.2f };
-            point4.Angles = new[] { 4.1f, 4.2f };
+            string[] point1Titles = { "Title: 1.1f", "Title: 1.2f" };
+            string[] point2Titles = { "Title: 2.1f", "Title: 2.2f" };
+            string[] point3Titles = { "Title: 3.1f", "Title: 3.2f" };
+            string[] point4Titles = { "Title: 4.1f", "Title: 4.2f" };
+            float[] point1Angles = { 1.1f, 1.2f };
+            float[] point2Angles = { 2.1f, 2.2f };
+            float[] point3Angles = { 3.1f, 3.2f };
+            float[] point4Angles = { 4.1f, 4.2f };
+            Point point1 = new Point("Point1", 1, 1, point1Titles, point1Angles);
+            Point point2 = new Point("Point2", 2, 2, point2Titles, point2Angles);
+            Point point3 = new Point("Point3", 3, 3, point3Titles, point3Angles);
+            Point point4 = new Point("Point4", 4, 4, point4Titles, point4Angles);
+
             Point[] points = { point1, point2, point3, point4 };
 
             Platform.SendPoints(points, points.Length);
         }
 
-        static unsafe void TestReceiveArray()
+        static void TestReceiveArray()
         {
             Console.WriteLine("C# 接收数组");
 
@@ -137,7 +138,24 @@ namespace Sample.Invoker
             Console.WriteLine("------------------------------");
         }
 
-        static unsafe void TestReceiveMatrix()
+        static void TestReceiveRange()
+        {
+            Console.WriteLine("C# 接收序列");
+
+            IntPtr pointer = Platform.ReceiveRange();
+            RangeDesc rangeDesc = Marshal.PtrToStructure<RangeDesc>(pointer);
+            for (int i = 0; i < rangeDesc.Histogram.Length; i++)
+            {
+                Console.WriteLine($"C# Range[{i}]: {rangeDesc.Histogram[i]}");
+            }
+
+            //释放资源
+            Platform.DisposeRange(pointer);
+
+            Console.WriteLine("------------------------------");
+        }
+
+        static void TestReceiveMatrix()
         {
             Console.WriteLine("C# 接收矩阵");
 
@@ -163,57 +181,19 @@ namespace Sample.Invoker
             Console.WriteLine("------------------------------");
         }
 
-        static unsafe void TestReceiveRange()
-        {
-            Console.WriteLine("C# 接收序列");
-
-            IntPtr pointer = Platform.ReceiveRange();
-            RangeDesc rangeDesc = Marshal.PtrToStructure<RangeDesc>(pointer);
-            for (int i = 0; i < rangeDesc.Histogram.Length; i++)
-            {
-                Console.WriteLine($"C# Range[{i}]: {rangeDesc.Histogram[i]}");
-            }
-
-            //释放资源
-            Platform.DisposeRange(pointer);
-
-            Console.WriteLine("------------------------------");
-        }
-
         static void TestSendStruct()
         {
-            Point point = new Point("C# Point", 11, 22)
-            {
-                Titles = new[] { "Title: 1.1f", "Title: 2.2f" },
-                Angles = new[] { 1.1f, 2.2f }
-            };
+            string[] titles = { "Title: 1.1f", "Title: 2.2f" };
+            float[] angles = { 1.1f, 2.2f };
+            Point point = new Point("C# Point", 11, 22, titles, angles);
             Platform.SendPoint(point);
-        }
-
-        static void TestSendComplexStruct()
-        {
-            Point point1 = new Point("C# Point Min", 11, 12)
-            {
-                Titles = new[] { "Title: 1.1f", "Title: 1.2f" },
-                Angles = new[] { 1.1f, 1.2f }
-            };
-            Point point2 = new Point("C# Point Max", 21, 22)
-            {
-                Titles = new[] { "Title: 2.1f", "Title: 2.2f" },
-                Angles = new[] { 2.1f, 2.2f }
-            };
-            Rectangle rectangle = new Rectangle(point1, point2);
-
-            Platform.SendRectangle(rectangle);
         }
 
         static void TestSendStructPtr()
         {
-            Point point = new Point("C# Point", 33, 44)
-            {
-                Titles = new[] { "Title: 3.3f", "Title: 4.4f" },
-                Angles = new[] { 3.3f, 4.4f }
-            };
+            string[] titles = { "Title: 3.3f", "Title: 4.4f" };
+            float[] angles = { 3.3f, 4.4f };
+            Point point = new Point("C# Point", 33, 44, titles, angles);
 
             //转结构体指针
             IntPtr pointPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Point)));
@@ -226,18 +206,27 @@ namespace Sample.Invoker
             Marshal.FreeHGlobal(pointPtr);
         }
 
+        static void TestSendComplexStruct()
+        {
+            string[] titles1 = { "Title: 1.1f", "Title: 1.2f" };
+            string[] titles2 = { "Title: 2.1f", "Title: 2.2f" };
+            float[] angles1 = { 1.1f, 1.2f };
+            float[] angles2 = { 2.1f, 2.2f };
+            Point point1 = new Point("C# Point Min", 11, 12, titles1, angles1);
+            Point point2 = new Point("C# Point Max", 21, 22, titles2, angles2);
+            Rectangle rectangle = new Rectangle(point1, point2);
+
+            Platform.SendRectangle(rectangle);
+        }
+
         static void TestSendComplexStructPtr()
         {
-            Point point1 = new Point("C# Point Min", 11, 12)
-            {
-                Titles = new[] { "Title: 1.1f", "Title: 1.2f" },
-                Angles = new[] { 1.1f, 1.2f }
-            };
-            Point point2 = new Point("C# Point Max", 21, 22)
-            {
-                Titles = new[] { "Title: 2.1f", "Title: 2.2f" },
-                Angles = new[] { 2.1f, 2.2f }
-            };
+            string[] titles1 = { "Title: 1.1f", "Title: 1.2f" };
+            string[] titles2 = { "Title: 2.1f", "Title: 2.2f" };
+            float[] angles1 = { 1.1f, 1.2f };
+            float[] angles2 = { 2.1f, 2.2f };
+            Point point1 = new Point("C# Point Min", 11, 12, titles1, angles1);
+            Point point2 = new Point("C# Point Max", 21, 22, titles2, angles2);
             Rectangle rectangle = new Rectangle(point1, point2);
 
             //转结构体指针
@@ -268,7 +257,7 @@ namespace Sample.Invoker
             }
 
             //释放资源
-            Platform.DisposePointPtr(pointPtr);
+            Platform.DisposePoint(pointPtr);
 
             Console.WriteLine("------------------------------");
         }
@@ -300,7 +289,7 @@ namespace Sample.Invoker
             }
 
             //释放资源
-            Platform.DisposeRectanglePtr(rectanglePtr);
+            Platform.DisposeRectangle(rectanglePtr);
 
             Console.WriteLine("------------------------------");
         }

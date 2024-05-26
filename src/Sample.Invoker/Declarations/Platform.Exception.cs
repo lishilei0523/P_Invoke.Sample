@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Sample.Invoker.Declares
+namespace Sample.Invoker.Declarations
 {
     /// <summary>
     /// 平台声明 - 异常
@@ -11,7 +11,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收预期异常
         /// </summary>
-        [DllImport(DllName, EntryPoint = "receiveHandledExpcetion")]
+        [DllImport(Platform.DllName, EntryPoint = "receiveHandledExpcetion")]
         public static extern void ReceiveHandledExpcetion();
         #endregion
 
@@ -19,7 +19,7 @@ namespace Sample.Invoker.Declares
         /// <summary>
         /// 接收未处理异常
         /// </summary>
-        [DllImport(DllName, EntryPoint = "receiveUnhandledExpcetion")]
+        [DllImport(Platform.DllName, EntryPoint = "receiveUnhandledExpcetion")]
         public static extern void ReceiveUnhandledExpcetion();
         #endregion
     }

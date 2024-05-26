@@ -5,7 +5,7 @@
 struct Rectangle
 {
 	Rectangle() = default;
-	Rectangle(const Point min, const Point max)
+	Rectangle(const Point& min, const Point& max)
 	{
 		this->Min = min;
 		this->Max = max;

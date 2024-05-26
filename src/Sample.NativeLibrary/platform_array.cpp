@@ -1,6 +1,5 @@
 #include <iostream>
 #include <format>
-#include <vector>
 #include "platform_array.h"
 using namespace std;
 
@@ -31,31 +30,44 @@ void sendPoints(Point points[], const int length)
 		const Point point = points[i];
 		for (int j = 0; j < 2; j++)
 		{
-			std::cout << "C++ Point.Titles[" << j << "]: " << point.Titles[j] << endl;
-			std::cout << "C++ Point.Angles[" << j << "]: " << point.Angles[j] << endl;
+			std::cout << std::format("C++ Point.Titles[{}]: {}", j, point.Titles[j]) << endl;
+			std::cout << std::format("C++ Point.Angles[{}]: {}", j, point.Angles[j]) << endl;
 		}
 	}
 }
 
 ArrayDesc* receiveArray()
 {
-	vector<int> numbers;
-	for (int i = 0; i < 10; i++)
+	constexpr int length = 10;
+	int* numbers = new int[length];
+	for (int i = 0; i < length; i++)
 	{
-		numbers.push_back(i);
+		numbers[i] = i;
 	}
-
-	const int length = (int)numbers.size();
-	int* numbersPtr = new int[length];
-	memcpy(numbersPtr, numbers.data(), length * sizeof(int));
-	ArrayDesc* arrayDesc = new ArrayDesc(numbersPtr, length);
+	ArrayDesc* arrayDesc = new ArrayDesc(numbers, length);
 
 	for (int i = 0; i < arrayDesc->Length; i++)
 	{
-		std::cout << "C++ Array[" << i << "]: " << numbersPtr[i] << endl;
+		std::cout << std::format("C++ Array[{}]: {}", i, numbers[i]) << endl;
 	}
 
 	return arrayDesc;
+}
+
+RangeDesc* receiveRange()
+{
+	constexpr int length = 33;
+	RangeDesc* rangeDesc = new RangeDesc();
+	for (int i = 0; i < length; i++)
+	{
+		rangeDesc->Histogram[i] = static_cast<float>(i + 1);
+	}
+	for (int i = 0; i < length; i++)
+	{
+		std::cout << std::format("C++ Range[{}]: {}", i, rangeDesc->Histogram[i]) << endl;
+	}
+
+	return rangeDesc;
 }
 
 MatrixDesc* receiveMatrix()
@@ -71,22 +83,13 @@ MatrixDesc* receiveMatrix()
 			matrix[rowIndex][colIndex] = static_cast<float>(rowIndex);
 		}
 	}
-	//matrix[0][0] = 1;
-	//matrix[0][1] = 1;
-	//matrix[0][2] = 1;
-	//matrix[1][0] = 2;
-	//matrix[1][1] = 2;
-	//matrix[1][2] = 2;
-	//matrix[2][0] = 3;
-	//matrix[2][1] = 3;
-	//matrix[2][2] = 3;
 
 	for (int rowIndex = 0; rowIndex < rows; rowIndex++)
 	{
 		const float* row = matrix[rowIndex];
 		for (int colIndex = 0; colIndex < cols; colIndex++)
 		{
-			std::cout << std::format("C++ Matrix[{}][{}]: ", rowIndex, colIndex) << row[colIndex] << endl;
+			std::cout << std::format("C++ Matrix[{}][{}]: {}", rowIndex, colIndex, row[colIndex]) << endl;
 		}
 	}
 
@@ -95,32 +98,17 @@ MatrixDesc* receiveMatrix()
 	return matrixDesc;
 }
 
-RangeDesc* receiveRange()
-{
-	RangeDesc* rangeDesc = new RangeDesc();
-	for (int i = 0; i < 33; i++)
-	{
-		rangeDesc->Histogram[i] = static_cast<float>(i + 1);
-	}
-	for (int i = 0; i < 33; i++)
-	{
-		std::cout << std::format("C++ Range[{}]: ", i) << rangeDesc->Histogram[i] << endl;
-	}
-
-	return rangeDesc;
-}
-
 void disposeArray(const ArrayDesc* pointer)
 {
 	delete pointer;
 }
 
-void disposeMatrix(const MatrixDesc* pointer)
+void disposeRange(const RangeDesc* pointer)
 {
 	delete pointer;
 }
 
-void disposeRange(const RangeDesc* pointer)
+void disposeMatrix(const MatrixDesc* pointer)
 {
 	delete pointer;
 }

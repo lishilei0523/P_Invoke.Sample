@@ -2,7 +2,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace Sample.Invoker.Declares
+namespace Sample.Invoker.Declarations
 {
     /// <summary>
     /// 平台声明 - 数组
@@ -41,20 +41,20 @@ namespace Sample.Invoker.Declares
         public static extern IntPtr ReceiveArray();
         #endregion
 
-        #region # 接收矩阵 —— static extern IntPtr ReceiveMatrix()
-        /// <summary>
-        /// 接收矩阵
-        /// </summary>
-        [DllImport(DllName, EntryPoint = "receiveMatrix")]
-        public static extern IntPtr ReceiveMatrix();
-        #endregion
-
         #region # 接收序列 —— static extern IntPtr ReceiveRange()
         /// <summary>
         /// 接收序列
         /// </summary>
         [DllImport(DllName, EntryPoint = "receiveRange")]
         public static extern IntPtr ReceiveRange();
+        #endregion
+
+        #region # 接收矩阵 —— static extern IntPtr ReceiveMatrix()
+        /// <summary>
+        /// 接收矩阵
+        /// </summary>
+        [DllImport(DllName, EntryPoint = "receiveMatrix")]
+        public static extern IntPtr ReceiveMatrix();
         #endregion
 
         #region # 释放数组 —— static extern void DisposeArray(IntPtr pointer)
@@ -65,20 +65,20 @@ namespace Sample.Invoker.Declares
         public static extern void DisposeArray(IntPtr pointer);
         #endregion
 
-        #region # 释放矩阵 —— static extern void DisposeMatrix(IntPtr pointer)
-        /// <summary>
-        /// 释放矩阵
-        /// </summary>
-        [DllImport(DllName, EntryPoint = "disposeMatrix")]
-        public static extern void DisposeMatrix(IntPtr pointer);
-        #endregion
-
         #region # 释放序列 —— static extern void DisposeRange(IntPtr pointer)
         /// <summary>
         /// 释放序列
         /// </summary>
         [DllImport(DllName, EntryPoint = "disposeRange")]
         public static extern void DisposeRange(IntPtr pointer);
+        #endregion
+
+        #region # 释放矩阵 —— static extern void DisposeMatrix(IntPtr pointer)
+        /// <summary>
+        /// 释放矩阵
+        /// </summary>
+        [DllImport(DllName, EntryPoint = "disposeMatrix")]
+        public static extern void DisposeMatrix(IntPtr pointer);
         #endregion
     }
 }

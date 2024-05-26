@@ -4,10 +4,18 @@ using System.Runtime.InteropServices;
 namespace Sample.Invoker.Models
 {
     [StructLayout(LayoutKind.Sequential)]
-    public struct MatrixDesc
+    public readonly struct MatrixDesc
     {
-        public IntPtr Matrix;
-        public int Rows;
-        public int Cols;
+        public MatrixDesc(IntPtr matrix, int rows, int cols)
+            : this()
+        {
+            this.Matrix = matrix;
+            this.Rows = rows;
+            this.Cols = cols;
+        }
+
+        public readonly IntPtr Matrix;
+        public readonly int Rows;
+        public readonly int Cols;
     }
 }

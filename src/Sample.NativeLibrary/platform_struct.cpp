@@ -116,12 +116,12 @@ Rectangle* receiveRectangle()
 	return rectangle;
 }
 
-void disposePointPtr(const Point* point)
+void disposePoint(const Point* pointer)
 {
-	delete point;
+	delete pointer;
 }
 
-void disposeRectanglePtr(const Rectangle* rectangle)
+void disposeRectangle(const Rectangle* pointer)
 {
-	delete rectangle;
+	delete pointer;
 }

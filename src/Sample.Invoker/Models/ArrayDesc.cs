@@ -4,9 +4,16 @@ using System.Runtime.InteropServices;
 namespace Sample.Invoker.Models
 {
     [StructLayout(LayoutKind.Sequential)]
-    public struct ArrayDesc
+    public readonly struct ArrayDesc
     {
-        public IntPtr Numbers;
-        public int Length;
+        public ArrayDesc(IntPtr numbers, int length)
+            : this()
+        {
+            this.Numbers = numbers;
+            this.Length = length;
+        }
+
+        public readonly IntPtr Numbers;
+        public readonly int Length;
     }
 }

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <format>
 #include "platform_primitives.h"
 using namespace std;
 
@@ -6,79 +7,57 @@ using namespace std;
 
 void sendBool(const bool enabled)
 {
-	std::cout << "发送bool" << endl;
-	std::cout << enabled << endl;
-	std::cout << "-----------------------------" << endl;
+	std::cout << std::format("C++接收bool: {} ", enabled) << endl;
 }
 
 void sendByte(const unsigned char number)
 {
-	std::cout << "发送byte" << endl;
-	std::cout << static_cast<int>(number) << endl;
-	std::cout << "-----------------------------" << endl;
+	std::cout << std::format("C++接收byte: {}", static_cast<int>(number)) << endl;
 }
 
 void sendSByte(const char number)
 {
-	std::cout << "发送sbyte" << endl;
-	std::cout << static_cast<int>(number) << endl;
-	std::cout << "-----------------------------" << endl;
+	std::cout << std::format("C++接收sbyte: {}", static_cast<int>(number)) << endl;
 }
 
 void sendShort(const short number)
 {
-	std::cout << "发送short" << endl;
-	std::cout << number << endl;
-	std::cout << "-----------------------------" << endl;
+	std::cout << std::format("C++接收short: {}", number) << endl;
 }
 
 void sendUShort(const unsigned short number)
 {
-	std::cout << "发送ushort" << endl;
-	std::cout << number << endl;
-	std::cout << "-----------------------------" << endl;
+	std::cout << std::format("C++接收ushort: {}", number) << endl;
 }
 
 void sendInt(const int number)
 {
-	std::cout << "发送int" << endl;
-	std::cout << number << endl;
-	std::cout << "-----------------------------" << endl;
+	std::cout << std::format("C++接收int: {}", number) << endl;
 }
 
 void sendUInt(const unsigned int number)
 {
-	std::cout << "发送uint" << endl;
-	std::cout << number << endl;
-	std::cout << "-----------------------------" << endl;
+	std::cout << std::format("C++接收uint: {}", number) << endl;
 }
 
 void sendLong(const long long number)
 {
-	std::cout << "发送long" << endl;
-	std::cout << number << endl;
-	std::cout << "-----------------------------" << endl;
+	std::cout << std::format("C++接收long: {}", number) << endl;
 }
 
 void sendULong(const unsigned long long number)
 {
-	std::cout << "发送ulong" << endl;
-	std::cout << number << endl;
-	std::cout << "-----------------------------" << endl;
+	std::cout << std::format("C++接收ulong: {}", number) << endl;
 }
 
 void sendFloat(const float number)
 {
-	std::cout << "发送float" << endl;
-	std::cout << number << endl;
-	std::cout << "-----------------------------" << endl;
+	std::cout << std::format("C++接收float: {}", number) << endl;
 }
 
 void sendDouble(const double number)
 {
-	std::cout << "发送double" << endl;
-	std::cout << number << endl;
-	std::cout << "-----------------------------" << endl;
+	std::cout << std::format("C++接收double: {}", number) << endl;
 }
 
 /*接收部分*/

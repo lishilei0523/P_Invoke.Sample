@@ -4,7 +4,7 @@
 struct ArrayDesc
 {
 	ArrayDesc() = default;
-	ArrayDesc(int* numbers, const int length)
+	ArrayDesc(int* numbers, const int& length)
 	{
 		this->Numbers = numbers;
 		this->Length = length;

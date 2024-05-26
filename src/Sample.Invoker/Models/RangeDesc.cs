@@ -3,9 +3,15 @@
 namespace Sample.Invoker.Models
 {
     [StructLayout(LayoutKind.Sequential)]
-    public struct RangeDesc
+    public readonly struct RangeDesc
     {
+        public RangeDesc(float[] histogram)
+            : this()
+        {
+            this.Histogram = histogram;
+        }
+
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 33)]
-        public float[] Histogram;
+        public readonly float[] Histogram;
     }
 }

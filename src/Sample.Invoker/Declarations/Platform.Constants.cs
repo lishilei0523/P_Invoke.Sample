@@ -1,4 +1,4 @@
-﻿namespace Sample.Invoker.Declares
+﻿namespace Sample.Invoker.Declarations
 {
     /// <summary>
     /// 平台声明 - 常量
