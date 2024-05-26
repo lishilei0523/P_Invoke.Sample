@@ -27,9 +27,11 @@ namespace Sample.Invoker
             //TestReceiveArray();
             //TestReceiveRange();
             //TestReceiveMatrix();
-            TestSendStruct();
-            //TestSendStructPtr();
+            //TestSendStruct();
+            //TestSendStructRef();
+            TestSendStructPtr();
             //TestSendComplexStruct();
+            //TestSendComplexStructRef();
             //TestSendComplexStructPtr();
             //TestReceiveStruct();
             //TestReceiveComplexStruct();
@@ -183,25 +185,40 @@ namespace Sample.Invoker
 
         static void TestSendStruct()
         {
-            string[] titles = { "Title: 1.1f", "Title: 2.2f" };
-            float[] angles = { 1.1f, 2.2f };
-            Point point = new Point("C# Point", 11, 22, titles, angles);
+            string[] titles = { "Title: 1.1f", "Title: 1.2f" };
+            float[] angles = { 1.1f, 1.2f };
+            Point point = new Point("C# Point", 11, 12, titles, angles);
 
             int addr = (int)&point;
-            Console.WriteLine($"C# Point.Addr: {addr:X16}");
+            Console.WriteLine($"Point.Addr: {addr:X16} from C#");
 
             Platform.SendPoint(point);
         }
 
+        static void TestSendStructRef()
+        {
+            string[] titles = { "Title: 2.1f", "Title: 2.2f" };
+            float[] angles = { 2.1f, 2.2f };
+            Point point = new Point("C# Point", 21, 22, titles, angles);
+
+            int addr = (int)&point;
+            Console.WriteLine($"Point.Addr: {addr:X16} from C#");
+
+            Platform.SendPointRef(ref point);
+        }
+
         static void TestSendStructPtr()
         {
-            string[] titles = { "Title: 3.3f", "Title: 4.4f" };
-            float[] angles = { 3.3f, 4.4f };
-            Point point = new Point("C# Point", 33, 44, titles, angles);
+            string[] titles = { "Title: 3.1f", "Title: 3.2f" };
+            float[] angles = { 3.1f, 3.2f };
+            Point point = new Point("C# Point", 31, 32, titles, angles);
 
             //转结构体指针
             IntPtr pointPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Point)));
             Marshal.StructureToPtr(point, pointPtr, false);
+
+            int addr = (int)pointPtr.ToPointer();
+            Console.WriteLine($"Point.Addr: {addr:X16} from C#");
 
             //发送
             Platform.SendPointPtr(pointPtr);
@@ -221,9 +238,25 @@ namespace Sample.Invoker
             Rectangle rectangle = new Rectangle(point1, point2);
 
             int addr = (int)&rectangle;
-            Console.WriteLine($"C# Rectangle.Addr: {addr:X}");
+            Console.WriteLine($"Rectangle.Addr: {addr:X16} from C#");
 
             Platform.SendRectangle(rectangle);
+        }
+
+        static void TestSendComplexStructRef()
+        {
+            string[] titles1 = { "Title: 1.1f", "Title: 1.2f" };
+            string[] titles2 = { "Title: 2.1f", "Title: 2.2f" };
+            float[] angles1 = { 1.1f, 1.2f };
+            float[] angles2 = { 2.1f, 2.2f };
+            Point point1 = new Point("C# Point Min", 11, 12, titles1, angles1);
+            Point point2 = new Point("C# Point Max", 21, 22, titles2, angles2);
+            Rectangle rectangle = new Rectangle(point1, point2);
+
+            int addr = (int)&rectangle;
+            Console.WriteLine($"Rectangle.Addr: {addr:X16} from C#");
+
+            Platform.SendRectangleRef(ref rectangle);
         }
 
         static void TestSendComplexStructPtr()
@@ -239,6 +272,9 @@ namespace Sample.Invoker
             //转结构体指针
             IntPtr rectanglePtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Rectangle)));
             Marshal.StructureToPtr(rectangle, rectanglePtr, false);
+
+            int addr = (int)rectanglePtr.ToPointer();
+            Console.WriteLine($"Rectangle.Addr: {addr:X16} from C#");
 
             //发送
             Platform.SendRectanglePtr(rectanglePtr);

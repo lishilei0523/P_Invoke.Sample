@@ -17,6 +17,14 @@ namespace Sample.Invoker.Declarations
         public static extern void SendPoint(Point point);
         #endregion
 
+        #region # 发送结构体引用 —— static extern void SendPointRef(ref Point point)
+        /// <summary>
+        /// 发送结构体引用
+        /// </summary>
+        [DllImport(Platform.DllName, EntryPoint = "sendPointRef")]
+        public static extern void SendPointRef(ref Point point);
+        #endregion
+
         #region # 发送结构体指针 —— static extern void SendPointPtr(IntPtr pointPtr)
         /// <summary>
         /// 发送结构体指针
@@ -34,13 +42,21 @@ namespace Sample.Invoker.Declarations
         public static extern void SendRectangle(Rectangle rectangle);
         #endregion
 
-        #region # 发送嵌套结构体指针 —— static extern void SendRectanglePtr(IntPtr pointPtr)
+        #region # 发送嵌套结构体引用 —— static extern void SendRectangleRef(ref Rectangle rectangle)
+        /// <summary>
+        /// 发送嵌套结构体引用
+        /// </summary>
+        [DllImport(Platform.DllName, EntryPoint = "sendRectangleRef")]
+        public static extern void SendRectangleRef(ref Rectangle rectangle);
+        #endregion
+
+        #region # 发送嵌套结构体指针 —— static extern void SendRectanglePtr(IntPtr rectanglePtr)
         /// <summary>
         /// 发送嵌套结构体指针
         /// </summary>
         /// <remarks>不建议使用</remarks>
         [DllImport(Platform.DllName, EntryPoint = "sendRectanglePtr")]
-        public static extern void SendRectanglePtr(IntPtr pointPtr);
+        public static extern void SendRectanglePtr(IntPtr rectanglePtr);
         #endregion
 
         #region # 接收结构体 —— static extern IntPtr ReceivePoint()
