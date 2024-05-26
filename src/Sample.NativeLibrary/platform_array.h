@@ -3,8 +3,8 @@
 #define CALLING_MODE _cdecl
 #include "point.h"
 #include "array_desc.h"
-#include "matrix_desc.h"
 #include "range_desc.h"
+#include "matrix_desc.h"
 
 EXPORT void CALLING_MODE sendNumbers(int numbers[], int length);
 EXPORT void CALLING_MODE sendStrings(char* strings[], int length);

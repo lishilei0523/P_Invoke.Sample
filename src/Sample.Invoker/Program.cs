@@ -17,8 +17,8 @@ namespace Sample.Invoker
             Console.WriteLine("From .NET Core");
             Console.WriteLine("--------------------------------");
 #endif
-            TestSendPrimitives();
-            TestReceivePrimitives();
+            //TestSendPrimitives();
+            //TestReceivePrimitives();
             //TestSendString();
             //TestReceiveString();
             //TestSendNumbers();
@@ -27,9 +27,9 @@ namespace Sample.Invoker
             //TestReceiveArray();
             //TestReceiveRange();
             //TestReceiveMatrix();
-            //TestSendStruct();
+            TestSendStruct();
             //TestSendStructPtr();
-            //TestSendComplexStruct();
+            TestSendComplexStruct();
             //TestSendComplexStructPtr();
             //TestReceiveStruct();
             //TestReceiveComplexStruct();
@@ -186,6 +186,10 @@ namespace Sample.Invoker
             string[] titles = { "Title: 1.1f", "Title: 2.2f" };
             float[] angles = { 1.1f, 2.2f };
             Point point = new Point("C# Point", 11, 22, titles, angles);
+
+            int addr = (int)&point;
+            Console.WriteLine($"C# Point.Addr: {addr:X}");
+
             Platform.SendPoint(point);
         }
 
@@ -215,6 +219,9 @@ namespace Sample.Invoker
             Point point1 = new Point("C# Point Min", 11, 12, titles1, angles1);
             Point point2 = new Point("C# Point Max", 21, 22, titles2, angles2);
             Rectangle rectangle = new Rectangle(point1, point2);
+
+            int addr = (int)&rectangle;
+            Console.WriteLine($"C# Rectangle.Addr: {addr:X}");
 
             Platform.SendRectangle(rectangle);
         }

@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <exception>
 #include "platform_exception.h"
 using namespace std;
@@ -11,6 +10,6 @@ void receiveHandledExpcetion()
 
 void receiveUnhandledExpcetion()
 {
-	const std::string text = nullptr;
+	const string text = nullptr;
 	std::cout << text << endl;
 }

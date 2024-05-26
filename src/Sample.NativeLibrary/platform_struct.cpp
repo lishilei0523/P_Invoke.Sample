@@ -1,45 +1,56 @@
 #include <iostream>
+#include <sstream>
+#include <format>
 #include "platform_struct.h"
 using namespace std;
 
-void sendPoint(const Point point)
+void sendPoint(const Point& point)
 {
 	std::cout << "C++ 接收结构体" << endl;
 
-	std::cout << "C++ Point.Name: " << point.Name << endl;
-	std::cout << "C++ Point.X: " << point.X << endl;
-	std::cout << "C++ Point.Y: " << point.Y << endl;
+	const Point* addr = &point;
+	stringstream stringstream;
+	stringstream << addr;
+	std::cout << std::format("C++ Point.Addr: {}", stringstream.str()) << endl;
+	std::cout << std::format("C++ Point.Name: {}", point.Name) << endl;
+	std::cout << std::format("C++ Point.X: {}", point.X) << endl;
+	std::cout << std::format("C++ Point.Y: {}", point.Y) << endl;
 	for (int i = 0; i < 2; i++)
 	{
-		std::cout << "C++ Point.Titles[" << i << "]: " << point.Titles[i] << endl;
-		std::cout << "C++ Point.Angles[" << i << "]: " << point.Angles[i] << endl;
+		std::cout << std::format("C++ Point.Titles[{}]: {}", i, point.Titles[i]) << endl;
+		std::cout << std::format("C++ Point.Angles[{}]: {}", i, point.Angles[i]) << endl;
 	}
 
 	std::cout << "------------------------------" << endl;
 }
 
-void sendRectangle(const Rectangle rectangle)
+void sendRectangle(const Rectangle& rectangle)
 {
 	std::cout << "C++ 接收嵌套结构体" << endl;
 
-	const Point* point1 = &rectangle.Min;
-	const Point* point2 = &rectangle.Max;
+	const Rectangle* addr = &rectangle;
+	stringstream stringstream;
+	stringstream << addr;
+	std::cout << std::format("C++ Rectangle.Addr: {}", stringstream.str()) << endl;
 
-	std::cout << "C++ PointMin.Name: " << point1->Name << endl;
-	std::cout << "C++ PointMin.X: " << point1->X << endl;
-	std::cout << "C++ PointMin.Y: " << point1->Y << endl;
+	const Point& point1 = rectangle.Min;
+	const Point& point2 = rectangle.Max;
+
+	std::cout << std::format("C++ PointMin.Name: {}", point1.Name) << endl;
+	std::cout << std::format("C++ PointMin.X: {}", point1.X) << endl;
+	std::cout << std::format("C++ PointMin.Y: {}", point1.Y) << endl;
 	for (int i = 0; i < 2; i++)
 	{
-		std::cout << "C++ PointMin.Titles[" << i << "]: " << point1->Titles[i] << endl;
-		std::cout << "C++ PointMin.Angles[" << i << "]: " << point1->Angles[i] << endl;
+		std::cout << std::format("C++ PointMin.Titles[{}]: {}", i, point1.Titles[i]) << endl;
+		std::cout << std::format("C++ PointMin.Angles[{}]: {}", i, point1.Angles[i]) << endl;
 	}
-	std::cout << "C++ PointMax.Name: " << point2->Name << endl;
-	std::cout << "C++ PointMax.X: " << point2->X << endl;
-	std::cout << "C++ PointMax.Y: " << point2->Y << endl;
+	std::cout << std::format("C++ PointMin.Name: {}", point2.Name) << endl;
+	std::cout << std::format("C++ PointMin.X: {}", point2.X) << endl;
+	std::cout << std::format("C++ PointMin.Y: {}", point2.Y) << endl;
 	for (int i = 0; i < 2; i++)
 	{
-		std::cout << "C++ PointMax.Titles[" << i << "]: " << point2->Titles[i] << endl;
-		std::cout << "C++ PointMax.Angles[" << i << "]: " << point2->Angles[i] << endl;
+		std::cout << std::format("C++ PointMin.Titles[{}]: {}", i, point2.Titles[i]) << endl;
+		std::cout << std::format("C++ PointMin.Angles[{}]: {}", i, point2.Angles[i]) << endl;
 	}
 
 	std::cout << "------------------------------" << endl;
@@ -49,13 +60,13 @@ void sendPointPtr(const Point* point)
 {
 	std::cout << "C++ 接收结构体指针" << endl;
 
-	std::cout << "C++ PointPtr.Name: " << point->Name << endl;
-	std::cout << "C++ PointPtr.X: " << point->X << endl;
-	std::cout << "C++ PointPtr.Y: " << point->Y << endl;
+	std::cout << std::format("C++ Point.Name: {}", point->Name) << endl;
+	std::cout << std::format("C++ Point.X: {}", point->X) << endl;
+	std::cout << std::format("C++ Point.Y: {}", point->Y) << endl;
 	for (int i = 0; i < 2; i++)
 	{
-		std::cout << "C++ Point.Titles[" << i << "]: " << point->Titles[i] << endl;
-		std::cout << "C++ Point.Angles[" << i << "]: " << point->Angles[i] << endl;
+		std::cout << std::format("C++ Point.Titles[{}]: {}", i, point->Titles[i]) << endl;
+		std::cout << std::format("C++ Point.Angles[{}]: {}", i, point->Angles[i]) << endl;
 	}
 
 	std::cout << "------------------------------" << endl;
@@ -65,24 +76,24 @@ void sendRectanglePtr(const Rectangle* rectangle)
 {
 	std::cout << "C++ 接收嵌套结构体指针" << endl;
 
-	const Point* point1 = &rectangle->Min;
-	const Point* point2 = &rectangle->Max;
+	const Point& point1 = rectangle->Min;
+	const Point& point2 = rectangle->Max;
 
-	std::cout << "C++ PointMin.Name: " << point1->Name << endl;
-	std::cout << "C++ PointMin.X: " << point1->X << endl;
-	std::cout << "C++ PointMin.Y: " << point1->Y << endl;
+	std::cout << std::format("C++ PointMin.Name: {}", point1.Name) << endl;
+	std::cout << std::format("C++ PointMin.X: {}", point1.X) << endl;
+	std::cout << std::format("C++ PointMin.Y: {}", point1.Y) << endl;
 	for (int i = 0; i < 2; i++)
 	{
-		std::cout << "C++ PointMin.Titles[" << i << "]: " << point1->Titles[i] << endl;
-		std::cout << "C++ PointMin.Angles[" << i << "]: " << point1->Angles[i] << endl;
+		std::cout << std::format("C++ PointMin.Titles[{}]: {}", i, point1.Titles[i]) << endl;
+		std::cout << std::format("C++ PointMin.Angles[{}]: {}", i, point1.Angles[i]) << endl;
 	}
-	std::cout << "C++ PointMax.Name: " << point2->Name << endl;
-	std::cout << "C++ PointMax.X: " << point2->X << endl;
-	std::cout << "C++ PointMax.Y: " << point2->Y << endl;
+	std::cout << std::format("C++ PointMin.Name: {}", point2.Name) << endl;
+	std::cout << std::format("C++ PointMin.X: {}", point2.X) << endl;
+	std::cout << std::format("C++ PointMin.Y: {}", point2.Y) << endl;
 	for (int i = 0; i < 2; i++)
 	{
-		std::cout << "C++ PointMax.Titles[" << i << "]: " << point2->Titles[i] << endl;
-		std::cout << "C++ PointMax.Angles[" << i << "]: " << point2->Angles[i] << endl;
+		std::cout << std::format("C++ PointMin.Titles[{}]: {}", i, point2.Titles[i]) << endl;
+		std::cout << std::format("C++ PointMin.Angles[{}]: {}", i, point2.Angles[i]) << endl;
 	}
 
 	std::cout << "------------------------------" << endl;
