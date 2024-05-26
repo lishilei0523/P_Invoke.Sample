@@ -6,10 +6,9 @@ using namespace std;
 
 void sendPoint(const Point point)
 {
-	const Point* addr = &point;
-	stringstream stringstream;
-	stringstream << addr;
-	std::cout << std::format("Point.Addr: {} from C++", stringstream.str()) << endl;
+	stringstream addrBuilder;
+	addrBuilder << &point;
+	std::cout << std::format("Point.Addr: {} from C++", addrBuilder.str()) << endl;
 
 	std::cout << "C++ 接收结构体" << endl;
 
@@ -22,15 +21,14 @@ void sendPoint(const Point point)
 		std::cout << std::format("C++ Point.Angles[{}]: {}", i, point.Angles[i]) << endl;
 	}
 
-	std::cout << "------------------------------" << endl;
+	std::cout << "------------------------------------------------------------" << endl;
 }
 
 void sendPointRef(const Point& point)
 {
-	const Point* addr = &point;
-	stringstream stringstream;
-	stringstream << addr;
-	std::cout << std::format("Point.Addr: {} from C++", stringstream.str()) << endl;
+	stringstream addrBuilder;
+	addrBuilder << &point;
+	std::cout << std::format("Point.Addr: {} from C++", addrBuilder.str()) << endl;
 
 	std::cout << "C++ 接收结构体引用" << endl;
 
@@ -43,14 +41,14 @@ void sendPointRef(const Point& point)
 		std::cout << std::format("C++ Point.Angles[{}]: {}", i, point.Angles[i]) << endl;
 	}
 
-	std::cout << "------------------------------" << endl;
+	std::cout << "------------------------------------------------------------" << endl;
 }
 
 void sendPointPtr(const Point* point)
 {
-	stringstream stringstream;
-	stringstream << point;
-	std::cout << std::format("Point.Addr: {} from C++", stringstream.str()) << endl;
+	stringstream addrBuilder;
+	addrBuilder << point;
+	std::cout << std::format("Point.Addr: {} from C++", addrBuilder.str()) << endl;
 
 	std::cout << "C++ 接收结构体指针" << endl;
 
@@ -63,15 +61,14 @@ void sendPointPtr(const Point* point)
 		std::cout << std::format("C++ Point.Angles[{}]: {}", i, point->Angles[i]) << endl;
 	}
 
-	std::cout << "------------------------------" << endl;
+	std::cout << "------------------------------------------------------------" << endl;
 }
 
 void sendRectangle(const Rectangle rectangle)
 {
-	const Rectangle* addr = &rectangle;
-	stringstream stringstream;
-	stringstream << addr;
-	std::cout << std::format("Rectangle.Addr: {} from C++", stringstream.str()) << endl;
+	stringstream addrBuilder;
+	addrBuilder << &rectangle;
+	std::cout << std::format("Rectangle.Addr: {} from C++", addrBuilder.str()) << endl;
 
 	std::cout << "C++ 接收嵌套结构体" << endl;
 
@@ -95,15 +92,14 @@ void sendRectangle(const Rectangle rectangle)
 		std::cout << std::format("C++ PointMin.Angles[{}]: {}", i, point2.Angles[i]) << endl;
 	}
 
-	std::cout << "------------------------------" << endl;
+	std::cout << "------------------------------------------------------------" << endl;
 }
 
 void sendRectangleRef(const Rectangle& rectangle)
 {
-	const Rectangle* addr = &rectangle;
-	stringstream stringstream;
-	stringstream << addr;
-	std::cout << std::format("Rectangle.Addr: {} from C++", stringstream.str()) << endl;
+	stringstream addrBuilder;
+	addrBuilder << &rectangle;
+	std::cout << std::format("Rectangle.Addr: {} from C++", addrBuilder.str()) << endl;
 
 	std::cout << "C++ 接收嵌套结构体引用" << endl;
 
@@ -127,14 +123,14 @@ void sendRectangleRef(const Rectangle& rectangle)
 		std::cout << std::format("C++ PointMin.Angles[{}]: {}", i, point2.Angles[i]) << endl;
 	}
 
-	std::cout << "------------------------------" << endl;
+	std::cout << "------------------------------------------------------------" << endl;
 }
 
 void sendRectanglePtr(const Rectangle* rectangle)
 {
-	stringstream stringstream;
-	stringstream << rectangle;
-	std::cout << std::format("Rectangle.Addr: {} from C++", stringstream.str()) << endl;
+	stringstream addrBuilder;
+	addrBuilder << rectangle;
+	std::cout << std::format("Rectangle.Addr: {} from C++", addrBuilder.str()) << endl;
 
 	std::cout << "C++ 接收嵌套结构体指针" << endl;
 
@@ -158,7 +154,7 @@ void sendRectanglePtr(const Rectangle* rectangle)
 		std::cout << std::format("C++ PointMin.Angles[{}]: {}", i, point2.Angles[i]) << endl;
 	}
 
-	std::cout << "------------------------------" << endl;
+	std::cout << "------------------------------------------------------------" << endl;
 }
 
 Point* receivePoint()

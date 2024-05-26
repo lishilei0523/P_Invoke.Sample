@@ -11,11 +11,11 @@ namespace Sample.Invoker
         {
 #if NET40_OR_GREATER
             Console.WriteLine("From .NET Framework");
-            Console.WriteLine("--------------------------------");
+            Console.WriteLine("------------------------------------------------------------");
 #endif
 #if NETCOREAPP3_1_OR_GREATER
             Console.WriteLine("From .NET Core");
-            Console.WriteLine("--------------------------------");
+            Console.WriteLine("------------------------------------------------------------");
 #endif
             //TestSendPrimitives();
             //TestReceivePrimitives();
@@ -27,12 +27,12 @@ namespace Sample.Invoker
             //TestReceiveArray();
             //TestReceiveRange();
             //TestReceiveMatrix();
-            //TestSendStruct();
-            //TestSendStructRef();
+            TestSendStruct();
+            TestSendStructRef();
             TestSendStructPtr();
-            //TestSendComplexStruct();
-            //TestSendComplexStructRef();
-            //TestSendComplexStructPtr();
+            TestSendComplexStruct();
+            TestSendComplexStructRef();
+            TestSendComplexStructPtr();
             //TestReceiveStruct();
             //TestReceiveComplexStruct();
             //TestReceiveHandledExpcetion();
@@ -137,7 +137,7 @@ namespace Sample.Invoker
             //释放资源
             Platform.DisposeArray(pointer);
 
-            Console.WriteLine("------------------------------");
+            Console.WriteLine("------------------------------------------------------------");
         }
 
         static void TestReceiveRange()
@@ -154,7 +154,7 @@ namespace Sample.Invoker
             //释放资源
             Platform.DisposeRange(pointer);
 
-            Console.WriteLine("------------------------------");
+            Console.WriteLine("------------------------------------------------------------");
         }
 
         static void TestReceiveMatrix()
@@ -180,7 +180,7 @@ namespace Sample.Invoker
             //释放资源
             Platform.DisposeMatrix(pointer);
 
-            Console.WriteLine("------------------------------");
+            Console.WriteLine("------------------------------------------------------------");
         }
 
         static void TestSendStruct()
@@ -302,7 +302,7 @@ namespace Sample.Invoker
             //释放资源
             Platform.DisposePoint(pointPtr);
 
-            Console.WriteLine("------------------------------");
+            Console.WriteLine("------------------------------------------------------------");
         }
 
         static void TestReceiveComplexStruct()
@@ -334,7 +334,7 @@ namespace Sample.Invoker
             //释放资源
             Platform.DisposeRectangle(rectanglePtr);
 
-            Console.WriteLine("------------------------------");
+            Console.WriteLine("------------------------------------------------------------");
         }
 
         static void TestReceiveHandledExpcetion()
