@@ -29,7 +29,7 @@ namespace Sample.Invoker
             //TestReceiveMatrix();
             TestSendStruct();
             //TestSendStructPtr();
-            TestSendComplexStruct();
+            //TestSendComplexStruct();
             //TestSendComplexStructPtr();
             //TestReceiveStruct();
             //TestReceiveComplexStruct();

@@ -3,7 +3,10 @@
 
 struct Point
 {
-	Point() = default;
+	Point()
+	{
+		std::cout << "C++ Point默认函数调用" << std::endl;
+	}
 	Point(const char* name, const int& x, const int& y)
 	{
 		this->Name = name;

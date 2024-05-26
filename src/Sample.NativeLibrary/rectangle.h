@@ -4,7 +4,10 @@
 
 struct Rectangle
 {
-	Rectangle() = default;
+	Rectangle()
+	{
+		std::cout << "C++ Rectangle默认函数调用" << std::endl;
+	}
 	Rectangle(const Point& min, const Point& max)
 	{
 		this->Min = min;

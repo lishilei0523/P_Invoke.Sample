@@ -4,7 +4,7 @@
 #include "platform_struct.h"
 using namespace std;
 
-void sendPoint(const Point& point)
+void sendPoint(const Point point)
 {
 	std::cout << "C++ 接收结构体" << endl;
 
@@ -24,7 +24,7 @@ void sendPoint(const Point& point)
 	std::cout << "------------------------------" << endl;
 }
 
-void sendRectangle(const Rectangle& rectangle)
+void sendRectangle(const Rectangle rectangle)
 {
 	std::cout << "C++ 接收嵌套结构体" << endl;
 
