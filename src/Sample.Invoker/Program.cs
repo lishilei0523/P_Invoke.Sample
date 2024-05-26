@@ -27,16 +27,28 @@ namespace Sample.Invoker
             //TestReceiveArray();
             //TestReceiveRange();
             //TestReceiveMatrix();
-            TestSendStruct();
-            TestSendStructRef();
-            TestSendStructPtr();
-            TestSendComplexStruct();
-            TestSendComplexStructRef();
-            TestSendComplexStructPtr();
+            //TestSendStruct();
+            //TestSendStructRef();
+            //TestSendStructPtr();
+            //TestSendComplexStruct();
+            //TestSendComplexStructRef();
+            //TestSendComplexStructPtr();
             //TestReceiveStruct();
             //TestReceiveComplexStruct();
             //TestReceiveHandledExpcetion();
             //TestReceiveUnhandledExpcetion();
+
+            //while (true)
+            //{
+            //    Stopwatch stopwatch = new Stopwatch();
+            //    stopwatch.Start();
+
+            //    TestSendStructRef();
+
+            //    stopwatch.Stop();
+            //    Console.WriteLine(stopwatch.Elapsed);
+            //    Thread.Sleep(500);
+            //}
 
             Console.ReadKey();
         }
