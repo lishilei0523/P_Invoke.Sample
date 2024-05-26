@@ -188,7 +188,7 @@ namespace Sample.Invoker
             Point point = new Point("C# Point", 11, 22, titles, angles);
 
             int addr = (int)&point;
-            Console.WriteLine($"C# Point.Addr: {addr:X}");
+            Console.WriteLine($"C# Point.Addr: {addr:X16}");
 
             Platform.SendPoint(point);
         }
