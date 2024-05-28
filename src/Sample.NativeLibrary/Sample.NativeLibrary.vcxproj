@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="array_desc.h" />
+    <ClInclude Include="matrix4x4.h" />
     <ClInclude Include="matrix_desc.h" />
     <ClInclude Include="platform_array.h" />
     <ClInclude Include="platform_exception.h" />

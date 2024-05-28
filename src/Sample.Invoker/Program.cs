@@ -27,6 +27,7 @@ namespace Sample.Invoker
             //TestReceiveArray();
             //TestReceiveRange();
             //TestReceiveMatrix();
+            TestReceiveMatrix4x4();
             //TestSendStruct();
             //TestSendStructRef();
             //TestSendStructPtr();
@@ -191,6 +192,27 @@ namespace Sample.Invoker
 
             //释放资源
             Platform.DisposeMatrix(pointer);
+
+            Console.WriteLine("------------------------------------------------------------");
+        }
+
+        static void TestReceiveMatrix4x4()
+        {
+            Console.WriteLine("C# 接收4x4矩阵");
+
+            IntPtr pointer = Platform.ReceiveMatrix4x4();
+            Matrix4x4 matrix4x4 = Marshal.PtrToStructure<Matrix4x4>(pointer);
+            for (int rowIndex = 0; rowIndex < Matrix4x4.RowsCount; rowIndex++)
+            {
+                for (int colIndex = 0; colIndex < Matrix4x4.ColsCount; colIndex++)
+                {
+                    int index = rowIndex * Matrix4x4.ColsCount + colIndex;
+                    Console.WriteLine($"C# Matrix[{rowIndex}][{colIndex}]: {matrix4x4.Matrix[index]}");
+                }
+            }
+
+            //释放资源
+            Platform.DisposeMatrix4x4(pointer);
 
             Console.WriteLine("------------------------------------------------------------");
         }

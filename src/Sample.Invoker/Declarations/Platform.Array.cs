@@ -57,6 +57,14 @@ namespace Sample.Invoker.Declarations
         public static extern IntPtr ReceiveMatrix();
         #endregion
 
+        #region # 接收4x4矩阵 —— static extern IntPtr ReceiveMatrix4x4()
+        /// <summary>
+        /// 接收4x4矩阵
+        /// </summary>
+        [DllImport(DllName, EntryPoint = "receiveMatrix4x4")]
+        public static extern IntPtr ReceiveMatrix4x4();
+        #endregion
+
         #region # 释放数组 —— static extern void DisposeArray(IntPtr pointer)
         /// <summary>
         /// 释放数组
@@ -79,6 +87,14 @@ namespace Sample.Invoker.Declarations
         /// </summary>
         [DllImport(DllName, EntryPoint = "disposeMatrix")]
         public static extern void DisposeMatrix(IntPtr pointer);
+        #endregion
+
+        #region # 释放4x4矩阵 —— static extern void DisposeMatrix4x4(IntPtr pointer)
+        /// <summary>
+        /// 释放4x4矩阵
+        /// </summary>
+        [DllImport(DllName, EntryPoint = "disposeMatrix4x4")]
+        public static extern void DisposeMatrix4x4(IntPtr pointer);
         #endregion
     }
 }

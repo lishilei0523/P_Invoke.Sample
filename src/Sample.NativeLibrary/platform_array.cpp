@@ -98,6 +98,31 @@ MatrixDesc* receiveMatrix()
 	return matrixDesc;
 }
 
+Matrix4x4* receiveMatrix4x4()
+{
+	const int rows = 4;
+	const int cols = 4;
+	Matrix4x4* matrix4x4 = new Matrix4x4();
+	for (int rowIndex = 0; rowIndex < rows; rowIndex++)
+	{
+		for (int colIndex = 0; colIndex < cols; colIndex++)
+		{
+			const int& index = rowIndex * cols + colIndex;
+			matrix4x4->Matrix[rowIndex][colIndex] = static_cast<float>(index);
+		}
+	}
+
+	for (int rowIndex = 0; rowIndex < rows; rowIndex++)
+	{
+		for (int colIndex = 0; colIndex < cols; colIndex++)
+		{
+			std::cout << std::format("C++ Matrix[{}][{}]: {}", rowIndex, colIndex, matrix4x4->Matrix[rowIndex][colIndex]) << endl;
+		}
+	}
+
+	return matrix4x4;
+}
+
 void disposeArray(const ArrayDesc* pointer)
 {
 	delete pointer;
@@ -109,6 +134,11 @@ void disposeRange(const RangeDesc* pointer)
 }
 
 void disposeMatrix(const MatrixDesc* pointer)
+{
+	delete pointer;
+}
+
+void disposeMatrix4x4(const Matrix4x4* pointer)
 {
 	delete pointer;
 }
