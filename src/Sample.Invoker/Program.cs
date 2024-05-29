@@ -25,9 +25,10 @@ namespace Sample.Invoker
             //TestSendStrings();
             //TestSendStructs();
             //TestReceiveArray();
+            TestReceiveArrayGroup();
             //TestReceiveRange();
             //TestReceiveMatrix();
-            TestReceiveMatrix4x4();
+            //TestReceiveMatrix4x4();
             //TestSendStruct();
             //TestSendStructRef();
             //TestSendStructPtr();
@@ -149,6 +150,31 @@ namespace Sample.Invoker
 
             //释放资源
             Platform.DisposeArray(pointer);
+
+            Console.WriteLine("------------------------------------------------------------");
+        }
+
+        static void TestReceiveArrayGroup()
+        {
+            Console.WriteLine("C# 接收数组分组");
+
+            IntPtr pointer = Platform.ReceiveArrayGroup(out int groupCount);
+            ArrayDesc[] arrayGroup = new ArrayDesc[groupCount];
+
+            ArrayDesc** arrayGroupPtr = (ArrayDesc**)pointer.ToPointer();
+            for (int groupIndex = 0; groupIndex < groupCount; groupIndex++)
+            {
+                ArrayDesc* arrayDesc = arrayGroupPtr[groupIndex];
+                Span<int> span = new Span<int>(arrayDesc->Numbers.ToPointer(), arrayDesc->Length);
+                for (int i = 0; i < arrayDesc->Length; i++)
+                {
+                    Console.WriteLine($"C# Group[{groupIndex}] Array[{i}]: {span[i]}");
+                }
+                arrayGroup[groupIndex] = *arrayDesc;
+            }
+
+            //释放资源
+            Platform.DisposeArrayGroup(pointer, groupCount);
 
             Console.WriteLine("------------------------------------------------------------");
         }

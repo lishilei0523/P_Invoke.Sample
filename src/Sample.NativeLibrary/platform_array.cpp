@@ -54,6 +54,33 @@ ArrayDesc* receiveArray()
 	return arrayDesc;
 }
 
+ArrayDesc** receiveArrayGroup(int& groupCount)
+{
+	groupCount = 5;
+	ArrayDesc** arrayGroup = new ArrayDesc * [groupCount];
+	for (int groupIndex = 0; groupIndex < groupCount; groupIndex++)
+	{
+		constexpr int arrayLength = 10;
+		int* numbers = new int[arrayLength];
+		for (int i = 0; i < arrayLength; i++)
+		{
+			numbers[i] = groupIndex;
+		}
+		arrayGroup[groupIndex] = new ArrayDesc(numbers, arrayLength);
+	}
+
+	for (int groupIndex = 0; groupIndex < groupCount; groupIndex++)
+	{
+		const ArrayDesc* arrayDesc = arrayGroup[groupIndex];
+		for (int i = 0; i < arrayDesc->Length; i++)
+		{
+			std::cout << std::format("C++ Group[{}], Array[{}]: {}", groupIndex, i, arrayDesc->Numbers[i]) << endl;
+		}
+	}
+
+	return arrayGroup;
+}
+
 RangeDesc* receiveRange()
 {
 	constexpr int length = 33;
@@ -125,6 +152,15 @@ Matrix4x4* receiveMatrix4x4()
 
 void disposeArray(const ArrayDesc* pointer)
 {
+	delete pointer;
+}
+
+void disposeArrayGroup(const ArrayDesc** pointer, const int groupCount)
+{
+	for (int i = 0; i < groupCount; i++)
+	{
+		delete pointer[i];
+	}
 	delete pointer;
 }
 

@@ -41,6 +41,14 @@ namespace Sample.Invoker.Declarations
         public static extern IntPtr ReceiveArray();
         #endregion
 
+        #region # 接收数组分组 —— static extern IntPtr ReceiveArrayGroup(out int groupCount)
+        /// <summary>
+        /// 接收数组分组
+        /// </summary>
+        [DllImport(DllName, EntryPoint = "receiveArrayGroup")]
+        public static extern IntPtr ReceiveArrayGroup(out int groupCount);
+        #endregion
+
         #region # 接收序列 —— static extern IntPtr ReceiveRange()
         /// <summary>
         /// 接收序列
@@ -71,6 +79,14 @@ namespace Sample.Invoker.Declarations
         /// </summary>
         [DllImport(DllName, EntryPoint = "disposeArray")]
         public static extern void DisposeArray(IntPtr pointer);
+        #endregion
+
+        #region # 释放数组分组 —— static extern void DisposeArrayGroup(IntPtr pointer, int groupCount)
+        /// <summary>
+        /// 释放数组分组
+        /// </summary>
+        [DllImport(DllName, EntryPoint = "disposeArrayGroup")]
+        public static extern void DisposeArrayGroup(IntPtr pointer, int groupCount);
         #endregion
 
         #region # 释放序列 —— static extern void DisposeRange(IntPtr pointer)
