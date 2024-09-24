@@ -10,8 +10,12 @@ void sendString(const char* text)
 char* receiveString()
 {
 	const string stlStr = "Hello World";
-	char* text = _strdup(stlStr.c_str());
-	//char* text = const_cast<char*>("char*: Hello World");
+
+#ifdef _WIN32
+    char* text = _strdup(stlStr.c_str());
+#elif __linux__
+    char* text = (char*)stlStr.c_str();
+#endif
 
 	return text;
 }
