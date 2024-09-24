@@ -3,64 +3,64 @@
 #include "platform_primitives.h"
 using namespace std;
 
-/*·¢ËÍ²¿·Ö*/
+/*å‘é€éƒ¨åˆ†*/
 
 void sendBool(const bool enabled)
 {
-	std::cout << std::format("C++½ÓÊÕbool: {} ", enabled) << endl;
+	std::cout << std::format("C++æ¥æ”¶bool: {} ", enabled) << endl;
 }
 
 void sendByte(const unsigned char number)
 {
-	std::cout << std::format("C++½ÓÊÕbyte: {}", static_cast<int>(number)) << endl;
+	std::cout << std::format("C++æ¥æ”¶byte: {}", static_cast<int>(number)) << endl;
 }
 
 void sendSByte(const char number)
 {
-	std::cout << std::format("C++½ÓÊÕsbyte: {}", static_cast<int>(number)) << endl;
+	std::cout << std::format("C++æ¥æ”¶sbyte: {}", static_cast<int>(number)) << endl;
 }
 
 void sendShort(const short number)
 {
-	std::cout << std::format("C++½ÓÊÕshort: {}", number) << endl;
+	std::cout << std::format("C++æ¥æ”¶short: {}", number) << endl;
 }
 
 void sendUShort(const unsigned short number)
 {
-	std::cout << std::format("C++½ÓÊÕushort: {}", number) << endl;
+	std::cout << std::format("C++æ¥æ”¶ushort: {}", number) << endl;
 }
 
 void sendInt(const int number)
 {
-	std::cout << std::format("C++½ÓÊÕint: {}", number) << endl;
+	std::cout << std::format("C++æ¥æ”¶int: {}", number) << endl;
 }
 
 void sendUInt(const unsigned int number)
 {
-	std::cout << std::format("C++½ÓÊÕuint: {}", number) << endl;
+	std::cout << std::format("C++æ¥æ”¶uint: {}", number) << endl;
 }
 
 void sendLong(const long long number)
 {
-	std::cout << std::format("C++½ÓÊÕlong: {}", number) << endl;
+	std::cout << std::format("C++æ¥æ”¶long: {}", number) << endl;
 }
 
 void sendULong(const unsigned long long number)
 {
-	std::cout << std::format("C++½ÓÊÕulong: {}", number) << endl;
+	std::cout << std::format("C++æ¥æ”¶ulong: {}", number) << endl;
 }
 
 void sendFloat(const float number)
 {
-	std::cout << std::format("C++½ÓÊÕfloat: {}", number) << endl;
+	std::cout << std::format("C++æ¥æ”¶float: {}", number) << endl;
 }
 
 void sendDouble(const double number)
 {
-	std::cout << std::format("C++½ÓÊÕdouble: {}", number) << endl;
+	std::cout << std::format("C++æ¥æ”¶double: {}", number) << endl;
 }
 
-/*½ÓÊÕ²¿·Ö*/
+/*æ¥æ”¶éƒ¨åˆ†*/
 
 bool receiveBool()
 {

@@ -5,7 +5,7 @@ struct RangeDesc
 	RangeDesc() = default;
 	~RangeDesc()
 	{
-		std::cout << "C++ RangeDesc析构函数调用" << std::endl;
+		std::cout << "C++ RangeDesc鏋愭瀯鍑芥暟璋冪敤" << std::endl;
 	}
 
 	float Histogram[33];

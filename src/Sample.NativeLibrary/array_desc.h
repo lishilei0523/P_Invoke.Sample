@@ -12,7 +12,7 @@ struct ArrayDesc
 	~ArrayDesc()
 	{
 		delete[] this->Numbers;
-		std::cout << "C++ ArrayDesc析构函数调用" << std::endl;
+		std::cout << "C++ ArrayDesc鏋愭瀯鍑芥暟璋冪敤" << std::endl;
 	}
 
 	int* Numbers;

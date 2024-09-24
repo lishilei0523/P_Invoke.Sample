@@ -10,7 +10,7 @@ void sendPoint(const Point point)
 	addrBuilder << &point;
 	std::cout << std::format("Point.Addr: {} from C++", addrBuilder.str()) << endl;
 
-	std::cout << "C++ ½ÓÊÕ½á¹¹Ìå" << endl;
+	std::cout << "C++ æŽ¥æ”¶ç»“æž„ä½“" << endl;
 
 	std::cout << std::format("C++ Point.Name: {}", point.Name) << endl;
 	std::cout << std::format("C++ Point.X: {}", point.X) << endl;
@@ -30,7 +30,7 @@ void sendPointRef(const Point& point)
 	addrBuilder << &point;
 	std::cout << std::format("Point.Addr: {} from C++", addrBuilder.str()) << endl;
 
-	std::cout << "C++ ½ÓÊÕ½á¹¹ÌåÒýÓÃ" << endl;
+	std::cout << "C++ æŽ¥æ”¶ç»“æž„ä½“å¼•ç”¨" << endl;
 
 	std::cout << std::format("C++ Point.Name: {}", point.Name) << endl;
 	std::cout << std::format("C++ Point.X: {}", point.X) << endl;
@@ -50,7 +50,7 @@ void sendPointPtr(const Point* point)
 	addrBuilder << point;
 	std::cout << std::format("Point.Addr: {} from C++", addrBuilder.str()) << endl;
 
-	std::cout << "C++ ½ÓÊÕ½á¹¹ÌåÖ¸Õë" << endl;
+	std::cout << "C++ æŽ¥æ”¶ç»“æž„ä½“æŒ‡é’ˆ" << endl;
 
 	std::cout << std::format("C++ Point.Name: {}", point->Name) << endl;
 	std::cout << std::format("C++ Point.X: {}", point->X) << endl;
@@ -70,7 +70,7 @@ void sendRectangle(const Rectangle rectangle)
 	addrBuilder << &rectangle;
 	std::cout << std::format("Rectangle.Addr: {} from C++", addrBuilder.str()) << endl;
 
-	std::cout << "C++ ½ÓÊÕÇ¶Ì×½á¹¹Ìå" << endl;
+	std::cout << "C++ æŽ¥æ”¶åµŒå¥—ç»“æž„ä½“" << endl;
 
 	const Point& point1 = rectangle.Min;
 	const Point& point2 = rectangle.Max;
@@ -101,7 +101,7 @@ void sendRectangleRef(const Rectangle& rectangle)
 	addrBuilder << &rectangle;
 	std::cout << std::format("Rectangle.Addr: {} from C++", addrBuilder.str()) << endl;
 
-	std::cout << "C++ ½ÓÊÕÇ¶Ì×½á¹¹ÌåÒýÓÃ" << endl;
+	std::cout << "C++ æŽ¥æ”¶åµŒå¥—ç»“æž„ä½“å¼•ç”¨" << endl;
 
 	const Point& point1 = rectangle.Min;
 	const Point& point2 = rectangle.Max;
@@ -132,7 +132,7 @@ void sendRectanglePtr(const Rectangle* rectangle)
 	addrBuilder << rectangle;
 	std::cout << std::format("Rectangle.Addr: {} from C++", addrBuilder.str()) << endl;
 
-	std::cout << "C++ ½ÓÊÕÇ¶Ì×½á¹¹ÌåÖ¸Õë" << endl;
+	std::cout << "C++ æŽ¥æ”¶åµŒå¥—ç»“æž„ä½“æŒ‡é’ˆ" << endl;
 
 	const Point& point1 = rectangle->Min;
 	const Point& point2 = rectangle->Max;

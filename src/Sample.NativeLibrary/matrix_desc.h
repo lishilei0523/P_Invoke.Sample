@@ -17,7 +17,7 @@ struct MatrixDesc
 			delete[] this->Matrix[rowIndex];
 		}
 		delete[] this->Matrix;
-		std::cout << "C++ MatrixDesc析构函数调用" << std::endl;
+		std::cout << "C++ MatrixDesc鏋愭瀯鍑芥暟璋冪敤" << std::endl;
 	}
 
 	float** Matrix;

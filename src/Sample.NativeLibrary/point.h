@@ -6,7 +6,7 @@ struct Point
 	Point()
 	{
 		std::cout << "********************************" << std::endl;
-		std::cout << "*** C++ PointÄ¬ÈÏ¹¹Ôìº¯Êıµ÷ÓÃ ***" << std::endl;
+		std::cout << "*** C++ Pointé»˜è®¤æ„é€ å‡½æ•°è°ƒç”¨ ***" << std::endl;
 		std::cout << "********************************" << std::endl;
 	}
 	Point(const char* name, const int& x, const int& y)
@@ -16,13 +16,13 @@ struct Point
 		this->Y = y;
 
 		std::cout << "********************************" << std::endl;
-		std::cout << "*** C++ PointÓĞ²Î¹¹Ôìº¯Êıµ÷ÓÃ ***" << std::endl;
+		std::cout << "*** C++ Pointæœ‰å‚æ„é€ å‡½æ•°è°ƒç”¨ ***" << std::endl;
 		std::cout << "********************************" << std::endl;
 	}
 	~Point()
 	{
 		std::cout << "*****************************" << std::endl;
-		std::cout << "*** C++ PointÎö¹¹º¯Êıµ÷ÓÃ ***" << std::endl;
+		std::cout << "*** C++ Pointææ„å‡½æ•°è°ƒç”¨ ***" << std::endl;
 		std::cout << "*****************************" << std::endl;
 	}
 

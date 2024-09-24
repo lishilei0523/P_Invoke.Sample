@@ -7,7 +7,7 @@ struct Rectangle
 	Rectangle()
 	{
 		std::cout << "************************************" << std::endl;
-		std::cout << "*** C++ RectangleÄ¬ÈÏ¹¹Ôìº¯Êýµ÷ÓÃ ***" << std::endl;
+		std::cout << "*** C++ Rectangleé»˜è®¤æž„é€ å‡½æ•°è°ƒç”¨ ***" << std::endl;
 		std::cout << "************************************" << std::endl;
 	}
 	Rectangle(const Point& min, const Point& max)
@@ -16,13 +16,13 @@ struct Rectangle
 		this->Max = max;
 
 		std::cout << "************************************" << std::endl;
-		std::cout << "*** C++ RectangleÓÐ²Î¹¹Ôìº¯Êýµ÷ÓÃ ***" << std::endl;
+		std::cout << "*** C++ Rectangleæœ‰å‚æž„é€ å‡½æ•°è°ƒç”¨ ***" << std::endl;
 		std::cout << "************************************" << std::endl;
 	}
 	~Rectangle()
 	{
 		std::cout << "*********************************" << std::endl;
-		std::cout << "*** C++ RectangleÎö¹¹º¯Êýµ÷ÓÃ ***" << std::endl;
+		std::cout << "*** C++ Rectangleæžæž„å‡½æ•°è°ƒç”¨ ***" << std::endl;
 		std::cout << "*********************************" << std::endl;
 	}
 
