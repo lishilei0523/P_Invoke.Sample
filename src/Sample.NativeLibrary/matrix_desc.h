@@ -4,12 +4,13 @@
 struct MatrixDesc
 {
 	MatrixDesc() = default;
+
 	MatrixDesc(float** matrix, const int& rows, const int& cols)
+		:Matrix(matrix), Rows(rows), Cols(cols)
 	{
-		this->Matrix = matrix;
-		this->Rows = rows;
-		this->Cols = cols;
+
 	}
+
 	~MatrixDesc()
 	{
 		for (int rowIndex = 0; rowIndex < this->Rows; rowIndex++)

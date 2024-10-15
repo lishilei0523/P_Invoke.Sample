@@ -4,11 +4,13 @@
 struct ArrayDesc
 {
 	ArrayDesc() = default;
+
 	ArrayDesc(int* numbers, const int& length)
+		:Numbers(numbers), Length(length)
 	{
-		this->Numbers = numbers;
-		this->Length = length;
+
 	}
+
 	~ArrayDesc()
 	{
 		delete[] this->Numbers;
