@@ -19,6 +19,7 @@ EXPORT_C void CALLING_MODE sendLong(long long number);
 EXPORT_C void CALLING_MODE sendULong(unsigned long long number);
 EXPORT_C void CALLING_MODE sendFloat(float number);
 EXPORT_C void CALLING_MODE sendDouble(double number);
+EXPORT_C void CALLING_MODE sendPointer(int* pointer);
 
 //接收部分
 EXPORT_C bool CALLING_MODE receiveBool();
@@ -32,3 +33,4 @@ EXPORT_C long long CALLING_MODE receiveLong();
 EXPORT_C unsigned long long CALLING_MODE receiveULong();
 EXPORT_C float CALLING_MODE receiveFloat();
 EXPORT_C double CALLING_MODE receiveDouble();
+EXPORT_C int* CALLING_MODE receivePointer();

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Sample.Invoker.Models
+namespace Sample.NativeLibrary.Models
 {
     [StructLayout(LayoutKind.Sequential)]
     public readonly struct Rectangle

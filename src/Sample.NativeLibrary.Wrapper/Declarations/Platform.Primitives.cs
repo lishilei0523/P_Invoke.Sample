@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Sample.Invoker.Declarations
+namespace Sample.NativeLibrary.Declarations
 {
     /// <summary>
     /// 平台声明 - 基元类型
@@ -97,6 +97,14 @@ namespace Sample.Invoker.Declarations
         public static extern void SendDouble(double number);
         #endregion
 
+        #region # 发送指针 —— static extern void SendPointer(int* pointer)
+        /// <summary>
+        /// 发送指针
+        /// </summary>
+        [DllImport(Platform.DllName, EntryPoint = "sendPointer")]
+        public static extern unsafe void SendPointer(int* pointer);
+        #endregion
+
 
         //接收部分
 
@@ -186,6 +194,14 @@ namespace Sample.Invoker.Declarations
         /// </summary>
         [DllImport(Platform.DllName, EntryPoint = "receiveDouble")]
         public static extern double ReceiveDouble();
+        #endregion
+
+        #region # 接收指针 —— static extern int* ReceivePointer()
+        /// <summary>
+        /// 接收指针
+        /// </summary>
+        [DllImport(Platform.DllName, EntryPoint = "receivePointer")]
+        public static extern unsafe int* ReceivePointer();
         #endregion
     }
 }

@@ -1,0 +1,12 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="src/Sample.Invoker/Sample.Invoker.csproj" />
+  <Project Path="src/Sample.NativeLibrary.Wrapper/Sample.NativeLibrary.Wrapper.csproj">
+    <BuildDependency Project="src/Sample.NativeLibrary/Sample.NativeLibrary.vcxproj" />
+  </Project>
+  <Project Path="src/Sample.NativeLibrary/Sample.NativeLibrary.vcxproj" Id="2922ba8c-56a9-4a36-a901-55b226ee82fd" />
+</Solution>

@@ -1,23 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net48;net8.0</TargetFrameworks>
-    <LangVersion>8.0</LangVersion>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <TargetFramework>net10.0</TargetFramework>
     <OutputType>Exe</OutputType>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <Authors>Lee</Authors>
     <Company>SD</Company>
-    <Copyright>Copyright © SD 2024</Copyright>
+    <Copyright>Copyright © SD 2026</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\Sample.NativeLibrary\bin\$(Configuration)\x64\*.dll">
-      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
-      <Visible>False</Visible>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="System.Memory" Version="4.5.5" />
+    <ProjectReference Include="..\Sample.NativeLibrary.Wrapper\Sample.NativeLibrary.Wrapper.csproj" />
   </ItemGroup>
 </Project>

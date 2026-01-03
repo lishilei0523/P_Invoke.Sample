@@ -3,64 +3,78 @@
 #include "platform_primitives.h"
 using namespace std;
 
-/*å‘é€éƒ¨åˆ†*/
+/*·¢ËÍ²¿·Ö*/
 
 void sendBool(const bool enabled)
 {
-	std::cout << std::format("C++æ¥æ”¶bool: {} ", enabled) << endl;
+	std::cout << std::format("C++½ÓÊÕbool: {} ", enabled) << endl;
 }
 
 void sendByte(const unsigned char number)
 {
-	std::cout << std::format("C++æ¥æ”¶byte: {}", static_cast<int>(number)) << endl;
+	std::cout << std::format("C++½ÓÊÕbyte: {}", static_cast<int>(number)) << endl;
 }
 
 void sendSByte(const char number)
 {
-	std::cout << std::format("C++æ¥æ”¶sbyte: {}", static_cast<int>(number)) << endl;
+	std::cout << std::format("C++½ÓÊÕsbyte: {}", static_cast<int>(number)) << endl;
 }
 
 void sendShort(const short number)
 {
-	std::cout << std::format("C++æ¥æ”¶short: {}", number) << endl;
+	std::cout << std::format("C++½ÓÊÕshort: {}", number) << endl;
 }
 
 void sendUShort(const unsigned short number)
 {
-	std::cout << std::format("C++æ¥æ”¶ushort: {}", number) << endl;
+	std::cout << std::format("C++½ÓÊÕushort: {}", number) << endl;
 }
 
 void sendInt(const int number)
 {
-	std::cout << std::format("C++æ¥æ”¶int: {}", number) << endl;
+	std::cout << std::format("C++½ÓÊÕint: {}", number) << endl;
 }
 
 void sendUInt(const unsigned int number)
 {
-	std::cout << std::format("C++æ¥æ”¶uint: {}", number) << endl;
+	std::cout << std::format("C++½ÓÊÕuint: {}", number) << endl;
 }
 
 void sendLong(const long long number)
 {
-	std::cout << std::format("C++æ¥æ”¶long: {}", number) << endl;
+	std::cout << std::format("C++½ÓÊÕlong: {}", number) << endl;
 }
 
 void sendULong(const unsigned long long number)
 {
-	std::cout << std::format("C++æ¥æ”¶ulong: {}", number) << endl;
+	std::cout << std::format("C++½ÓÊÕulong: {}", number) << endl;
 }
 
 void sendFloat(const float number)
 {
-	std::cout << std::format("C++æ¥æ”¶float: {}", number) << endl;
+	std::cout << std::format("C++½ÓÊÕfloat: {}", number) << endl;
 }
 
 void sendDouble(const double number)
 {
-	std::cout << std::format("C++æ¥æ”¶double: {}", number) << endl;
+	std::cout << std::format("C++½ÓÊÕdouble: {}", number) << endl;
 }
 
-/*æ¥æ”¶éƒ¨åˆ†*/
+void sendPointer(int* pointer)
+{
+	std::cout << "C++½ÓÊÕÖ¸Õë: " << endl;
+	for (int index = 0; index < 10; ++index)
+	{
+		const int& number = pointer[index];
+		std::cout << number << endl;
+
+		//ĞŞ¸ÄÖµ
+		pointer[index] = index + 10;
+	}
+}
+
+
+/*½ÓÊÕ²¿·Ö*/
 
 bool receiveBool()
 {
@@ -115,4 +129,16 @@ float receiveFloat()
 double receiveDouble()
 {
 	return 3.14;
+}
+
+int* receivePointer()
+{
+	constexpr int length = 10;
+	int* pointer = (int*)malloc(sizeof(int) * length);
+	for (int index = 0; index < length; ++index)
+	{
+		pointer[index] = index;
+	}
+
+	return pointer;
 }

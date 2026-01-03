@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Sample.NativeLibrary</RootNamespace>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <Authors>Lee</Authors>
+    <Company>SD</Company>
+    <Copyright>Copyright © SD 2026</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Sample.NativeLibrary\bin\$(Configuration)\x64\*.dll">
+      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <Visible>False</Visible>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

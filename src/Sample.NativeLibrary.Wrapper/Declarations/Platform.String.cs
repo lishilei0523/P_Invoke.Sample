@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Sample.Invoker.Declarations
+namespace Sample.NativeLibrary.Declarations
 {
     /// <summary>
     /// 平台声明 - 字符串

@@ -1,5 +1,5 @@
-﻿using Sample.Invoker.Declarations;
-using Sample.Invoker.Models;
+﻿using Sample.NativeLibrary.Declarations;
+using Sample.NativeLibrary.Models;
 using System;
 using System.Runtime.InteropServices;
 
@@ -9,23 +9,17 @@ namespace Sample.Invoker
     {
         static void Main()
         {
-#if NET40_OR_GREATER
-            Console.WriteLine("From .NET Framework");
-            Console.WriteLine("------------------------------------------------------------");
-#endif
-#if NETCOREAPP3_1_OR_GREATER
-            Console.WriteLine("From .NET Core");
-            Console.WriteLine("------------------------------------------------------------");
-#endif
             //TestSendPrimitives();
+            TestSendPointer();
             //TestReceivePrimitives();
+            //TestReceivePointer();
             //TestSendString();
             //TestReceiveString();
             //TestSendNumbers();
             //TestSendStrings();
             //TestSendStructs();
             //TestReceiveArray();
-            TestReceiveArrayGroup();
+            //TestReceiveArrayGroup();
             //TestReceiveRange();
             //TestReceiveMatrix();
             //TestReceiveMatrix4x4();
@@ -70,6 +64,26 @@ namespace Sample.Invoker
             Platform.SendDouble(3.14);
         }
 
+        static void TestSendPointer()
+        {
+            const int length = 10;
+            int* pointer = (int*)NativeMemory.Alloc(sizeof(int) * length);
+            for (int index = 0; index < length; index++)
+            {
+                pointer[index] = index;
+            }
+
+            Platform.SendPointer(pointer);
+
+            Console.WriteLine("C#重新读取指针: ");
+            for (int index = 0; index < length; index++)
+            {
+                Console.WriteLine(pointer[index]);
+            }
+
+            NativeMemory.Free(pointer);
+        }
+
         static void TestReceivePrimitives()
         {
             Console.WriteLine($"C#接收bool: {Platform.ReceiveBool()}");
@@ -83,6 +97,18 @@ namespace Sample.Invoker
             Console.WriteLine($"C#接收ulong: {Platform.ReceiveULong()}");
             Console.WriteLine($"C#接收float: {Platform.ReceiveFloat()}");
             Console.WriteLine($"C#接收double: {Platform.ReceiveDouble()}");
+        }
+
+        static void TestReceivePointer()
+        {
+            const int length = 10;
+            int* pointer = Platform.ReceivePointer();
+
+            Console.WriteLine("C#读取指针: ");
+            for (int index = 0; index < length; index++)
+            {
+                Console.WriteLine(pointer[index]);
+            }
         }
 
         static void TestSendString()
