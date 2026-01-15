@@ -158,6 +158,8 @@
     <ClInclude Include="array_desc.h" />
     <ClInclude Include="matrix4x4.h" />
     <ClInclude Include="matrix_desc.h" />
+    <ClInclude Include="message.h" />
+    <ClInclude Include="message_wrapper.h" />
     <ClInclude Include="platform_array.h" />
     <ClInclude Include="platform_exception.h" />
     <ClInclude Include="platform_primitives.h" />
@@ -168,6 +170,8 @@
     <ClInclude Include="rectangle.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="message.cpp" />
+    <ClCompile Include="message_wrapper.cpp" />
     <ClCompile Include="platform_array.cpp" />
     <ClCompile Include="platform_exception.cpp" />
     <ClCompile Include="platform_primitives.cpp" />

@@ -10,7 +10,7 @@ namespace Sample.Invoker
         static void Main()
         {
             //TestSendPrimitives();
-            TestSendPointer();
+            //TestSendPointer();
             //TestReceivePrimitives();
             //TestReceivePointer();
             //TestSendString();
@@ -33,6 +33,7 @@ namespace Sample.Invoker
             //TestReceiveComplexStruct();
             //TestReceiveHandledExpcetion();
             //TestReceiveUnhandledExpcetion();
+            TestMessage();
 
             //while (true)
             //{
@@ -447,6 +448,16 @@ namespace Sample.Invoker
                 Console.WriteLine(e);
                 Console.WriteLine("异常");
             }
+        }
+
+        static void TestMessage()
+        {
+            MessageWrapper message = new MessageWrapper("标题", "内容");
+            message.Send("张无忌");
+            Console.WriteLine(message.Title);
+            Console.WriteLine(message.Content);
+
+            message.Dispose();
         }
     }
 }

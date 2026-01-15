@@ -34,6 +34,12 @@
     <ClInclude Include="matrix4x4.h">
       <Filter>Models</Filter>
     </ClInclude>
+    <ClInclude Include="message.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="message_wrapper.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="platform_array.cpp">
@@ -49,6 +55,12 @@
       <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="platform_exception.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="message.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="message_wrapper.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
