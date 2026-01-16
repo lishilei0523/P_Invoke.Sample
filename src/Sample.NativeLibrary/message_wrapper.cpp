@@ -12,6 +12,16 @@ void send(Message* message, const char* receiver)
 	message->send(receiver);
 }
 
+void setTitle(Message* message, const char* title)
+{
+	message->setTitle(title);
+}
+
+void setContent(Message* message, const char* content)
+{
+	message->setContent(content);
+}
+
 char* getTitle(const Message* message)
 {
 	const std::string& title = message->getTitle();

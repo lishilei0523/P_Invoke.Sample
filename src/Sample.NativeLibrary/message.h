@@ -43,6 +43,18 @@ public:
 	void send(const std::string& receiver);
 
 	/// <summary>
+	/// 设置标题
+	/// </summary>
+	/// <param name="title">标题</param>
+	void setTitle(const std::string& title);
+
+	/// <summary>
+	/// 设置内容
+	/// </summary>
+	/// <param name="content">内容</param>
+	void setContent(const std::string& content);
+
+	/// <summary>
 	/// 获取标题
 	/// </summary>
 	/// <returns>标题</returns>

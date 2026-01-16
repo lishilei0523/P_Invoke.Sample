@@ -11,7 +11,7 @@ using namespace std;
 Message::Message(const std::string& title, const std::string& content)
 	:_title(title), _content(content)
 {
-	std::cout << "message has created" << endl;
+	std::cout << "C++: message has created." << endl;
 }
 
 /// <summary>
@@ -19,7 +19,7 @@ Message::Message(const std::string& title, const std::string& content)
 /// </summary>
 Message::~Message()
 {
-	std::cout << "message has disposed" << endl;
+	std::cout << "C++: message has disposed." << endl;
 }
 
 /// <summary>
@@ -28,7 +28,29 @@ Message::~Message()
 /// <param name="receiver">收件人</param>
 void Message::send(const std::string& receiver)
 {
-	std::cout << std::format("标题: {}, 内容: {} 已发送至 {}", this->_title, this->_content, receiver) << endl;
+	std::cout << "---------------- From C++ ----------------" << endl;
+	std::cout << std::format("标题: {}", this->_title) << endl;
+	std::cout << std::format("内容: {}", this->_content) << endl;
+	std::cout << std::format("已发送至 {}", receiver) << endl;
+	std::cout << "---------------- End ----------------" << endl;
+}
+
+/// <summary>
+/// 设置标题
+/// </summary>
+/// <param name="title">标题</param>
+void Message::setTitle(const std::string& title)
+{
+	this->_title = title;
+}
+
+/// <summary>
+/// 设置内容
+/// </summary>
+/// <param name="content">内容</param>
+void Message::setContent(const std::string& content)
+{
+	this->_content = content;
 }
 
 /// <summary>

@@ -452,10 +452,16 @@ namespace Sample.Invoker
 
         static void TestMessage()
         {
-            MessageWrapper message = new MessageWrapper("标题", "内容");
+            MessageWrapper message = new MessageWrapper("放假通知", "春节放假1个月");
             message.Send("张无忌");
-            Console.WriteLine(message.Title);
-            Console.WriteLine(message.Content);
+
+            message.Title = "取消放假通知";
+            message.Content = "春节加班";
+
+            Console.WriteLine("---------------- From C# ----------------");
+            Console.WriteLine($"标题: {message.Title}");
+            Console.WriteLine($"内容: {message.Content}");
+            Console.WriteLine("---------------- End ----------------");
 
             message.Dispose();
         }
