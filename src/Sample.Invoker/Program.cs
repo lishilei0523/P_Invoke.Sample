@@ -2,6 +2,7 @@
 using Sample.NativeLibrary.Models;
 using System;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace Sample.Invoker
 {
@@ -14,6 +15,7 @@ namespace Sample.Invoker
             //TestReceivePrimitives();
             //TestReceivePointer();
             //TestSendString();
+            TestSendStringBuilder();
             //TestReceiveString();
             //TestSendNumbers();
             //TestSendStrings();
@@ -33,7 +35,7 @@ namespace Sample.Invoker
             //TestReceiveComplexStruct();
             //TestReceiveHandledExpcetion();
             //TestReceiveUnhandledExpcetion();
-            TestMessage();
+            //TestMessage();
 
             //while (true)
             //{
@@ -115,6 +117,15 @@ namespace Sample.Invoker
         static void TestSendString()
         {
             Platform.SendString("Hello World");
+        }
+
+        static void TestSendStringBuilder()
+        {
+            StringBuilder stringBuilder = new StringBuilder(100);
+
+            Platform.SendStringBuilder(stringBuilder);
+
+            Console.WriteLine($"C#: {stringBuilder}");
         }
 
         static void TestReceiveString()

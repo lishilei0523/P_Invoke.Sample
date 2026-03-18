@@ -8,4 +8,5 @@
 #endif
 
 EXPORT_C void CALLING_MODE sendString(const char* text);
+EXPORT_C void CALLING_MODE sendStringBuilder(char* textBuilder);
 EXPORT_C char* CALLING_MODE receiveString();
