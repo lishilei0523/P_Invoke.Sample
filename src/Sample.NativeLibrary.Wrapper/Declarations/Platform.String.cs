@@ -17,7 +17,7 @@ namespace Sample.NativeLibrary.Declarations
         public static extern void SendString([MarshalAs(UnmanagedType.LPStr)] string text);
         #endregion
 
-        #region # 发送StringBuilder —— static extern void SendStringBuilder(string text)
+        #region # 发送StringBuilder —— static extern void SendStringBuilder(StringBuilder textBuilder)
         /// <summary>
         /// 发送StringBuilder
         /// </summary>
